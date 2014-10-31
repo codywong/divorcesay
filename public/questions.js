@@ -1,6 +1,6 @@
-var WatsonFilms = WatsonFilms || {};
+var Divorcesay = Divorcesay || {};
 
-WatsonFilms.App = function() {
+Divorcesay.App = function() {
     // The current Slick Carousel index
     var slickIndex = 0;
     
