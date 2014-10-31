@@ -1,0 +1,82 @@
+.main {
+    width: 75%;
+    height:75%;
+    position: absolute;
+    top:0;   bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.answer {
+	border:1px solid #fff;
+	border-bottom-right-radius:1px;
+    padding: 20px 10 20px;
+    opacity: 0.8;
+    min-width: 600px;
+    max-width: 760px;
+    color: #fff;
+    font-size: 19px;
+}
+
+.answerContent {
+    height: 340px;
+    overflow: auto;
+    padding: 5px 15px 10px;
+}
+
+.confidence {
+    padding: 10px 15px 5px;
+    color: #A75265;
+}
+
+.hidden {
+    display: none;
+}
+
+.evidence-title {
+    font-weight: 500;
+    color: #000;
+}
+
+.evidence-modal-header {
+    background: #037E8C; 
+    color: #fff;
+}
+
+.evidence-modal-body {
+    background: #fff; 
+    color: #000;
+    height:400px;
+    overflow: auto;
+}
+
+.evidence-content {
+	color: #000;
+}
+
+.slick-dots li button:before {
+    color: white; 
+}
+
+#searchTerm {
+	min-width: 600px; 
+	max-width: 700px;
+}
+ 
+#submitSearchTerm {
+	color: #eee; 
+	background-color: #037E8C; 
+	vertical-align: middle; 
+	border-radius: 0px; 
+	border: 2px;
+}
+
+.dropDownSampleQuestion {
+    color: #eee; 
+    background-color: #037E8C; 
+    vertical-align: middle; 
+    border-radius: 0px; 
+    border: 2px;
+    height: 61px;
+}

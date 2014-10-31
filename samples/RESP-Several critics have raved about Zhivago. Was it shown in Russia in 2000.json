@@ -1,0 +1,234 @@
+{
+    "question": {
+        "qclasslist": [
+            {
+                "value": "FACTOID"
+            },
+            {
+                "value": "DESCRIPTIVE"
+            }
+        ],
+        "focuslist": [
+            {
+                "value": "it"
+            }
+        ],
+        "latlist": [
+            {
+                "value": "it"
+            }
+        ],
+        "evidencelist": [
+            {
+                "value": "0.25308680534362793",
+                "text": "Over the years, the film's critical reputation has gained in stature, and today Doctor Zhivago is considered to be one of Lean's finest works and is highly critically acclaimed, along with Lawrence of Arabia , Brief Encounter , The Bridge on the River Kwai , and A Passage to India. As with the novel itself, the film was banned in the Soviet Union. It was not shown in Russia until 1994. Review aggregator Rotten Tomatoes gives the film an 85% 'Fresh' rating.",
+                "id": "PB_FC6CC778B1703419C687B86A739779FF",
+                "title": "Doctor Zhivago (film) - Wikipedia, the free encyclopedia : Doctor Zhivago (film) : Reception[edit]",
+                "document": "/instance/8/deepqa/v1/question/document/PB_FC6CC778B1703419C687B86A739779FF/3103/3563",
+                "copyright": "No copyright specified for this supporting passage or document.",
+                "termsOfUse": "No license specified for this supporting passage or document."
+            },
+            {
+                "value": "0.10297795385122299",
+                "text": "Many critics believed that the film's focus on the love story between Zhivago and Lara trivialized the events of the Russian Revolution and the resulting civil war. The sweeping multi-plotted story form used by Pasternak had a distinguished pedigree in Russian letters. The author of War and Peace , Leo Tolstoy, had used characters as symbols of classes and historical events in describing the events in the Russia of Napoleonic times. Pasternak's father, who was a painter, had produced illustrations for War and Peace.",
+                "id": "PB_FC6CC778B170341996480AF5F45652821",
+                "title": "Doctor Zhivago (film) - Wikipedia, the free encyclopedia",
+                "document": "/instance/8/deepqa/v1/question/document/PB_FC6CC778B170341996480AF5F45652821/11749/12270",
+                "copyright": "No copyright specified for this supporting passage or document.",
+                "termsOfUse": "No license specified for this supporting passage or document."
+            }
+        ],
+        "synonymList": [
+            {
+                "partOfSpeech": "verb",
+                "value": "shown",
+                "lemma": "show",
+                "synSet": [
+                    {
+                        "name": "Wordnet_show-verb-1",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "present",
+                                "weight": 1
+                            },
+                            {
+                                "isChosen": true,
+                                "value": "demo",
+                                "weight": 1
+                            },
+                            {
+                                "isChosen": true,
+                                "value": "demonstrate",
+                                "weight": 1
+                            },
+                            {
+                                "isChosen": true,
+                                "value": "exhibit",
+                                "weight": 1
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Lemma_Expansion",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "show",
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "partOfSpeech": "verb",
+                "value": "raved",
+                "lemma": "rave",
+                "synSet": [
+                    {
+                        "name": "Lemma_Expansion",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "rave",
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "partOfSpeech": "noun",
+                "value": "russia",
+                "lemma": "russia",
+                "synSet": [
+                    {
+                        "name": "Wordnet_soviet+union-noun-1",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "ussr",
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "partOfSpeech": "verb",
+                "value": "was",
+                "lemma": "be",
+                "synSet": [
+                    {
+                        "name": "Lemma_Expansion",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "be",
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "partOfSpeech": "noun",
+                "value": "critics",
+                "lemma": "critic",
+                "synSet": [
+                    {
+                        "name": "Lemma_Expansion",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "critic",
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "partOfSpeech": "verb",
+                "value": "have",
+                "lemma": "have",
+                "synSet": [
+                    {
+                        "name": "Wordnet_have-verb-1",
+                        "synonym": [
+                            {
+                                "isChosen": true,
+                                "value": "hold",
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "pipelineid": "1796754306",
+        "formattedAnswer": false,
+        "category": "",
+        "items": 2,
+        "status": "Complete",
+        "id": "7DAB5AA51B814111AA3E053C88AE69FE",
+        "questionText": "Several critics have raved about Zhivago. Was it shown in Russia in 2000?",
+        "evidenceRequest": {
+            "items": 1,
+            "profile": "Yes"
+        },
+        "answers": [
+            {
+                "id": 0,
+                "text": "Over the years, the film's critical reputation has gained in stature, and today Doctor Zhivago is considered to be one of Lean's finest works and is highly critically acclaimed, along with Lawrence of Arabia , Brief Encounter , The Bridge on the River Kwai , and A Passage to India. As with the novel itself, the film was banned in the Soviet Union. It was not shown in Russia until 1994. Review aggregator Rotten Tomatoes gives the film an 85% 'Fresh' rating.",
+                "pipeline": "Descriptive",
+                "confidence": 0.25309,
+                "evidenceProfile": [
+                    {
+                        "name": "FeatureGroup_Linguistic",
+                        "value": "0.23145645026735637"
+                    },
+                    {
+                        "name": "FeatureGroup_Type",
+                        "value": "0.2690169077609411"
+                    },
+                    {
+                        "name": "FeatureGroup_Spatio-temporal",
+                        "value": "0.24976332098585127"
+                    },
+                    {
+                        "name": "FeatureGroup_Relevance",
+                        "value": "0.24976332098585127"
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "text": "Many critics believed that the film's focus on the love story between Zhivago and Lara trivialized the events of the Russian Revolution and the resulting civil war. The sweeping multi-plotted story form used by Pasternak had a distinguished pedigree in Russian letters. The author of War and Peace , Leo Tolstoy, had used characters as symbols of classes and historical events in describing the events in the Russia of Napoleonic times. Pasternak's father, who was a painter, had produced illustrations for War and Peace.",
+                "pipeline": "Descriptive",
+                "confidence": 0.10298,
+                "evidenceProfile": [
+                    {
+                        "name": "FeatureGroup_Linguistic",
+                        "value": "0.21214725301293394"
+                    },
+                    {
+                        "name": "FeatureGroup_Type",
+                        "value": "0.2757757967510807"
+                    },
+                    {
+                        "name": "FeatureGroup_Spatio-temporal",
+                        "value": "0.25603847511799266"
+                    },
+                    {
+                        "name": "FeatureGroup_Relevance",
+                        "value": "0.25603847511799266"
+                    }
+                ]
+            }
+        ],
+        "errorNotifications": [],
+        "passthru": ""
+    }
+}
