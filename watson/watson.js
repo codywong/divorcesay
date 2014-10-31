@@ -1,14 +1,16 @@
+var credentials = require('./credentials');
+
 // Describe the Watson Endpoint
 // Specify the information and credentials pertinent to your Watson instance
 var endpoint = {
     // enter watson host name; e.g: 'http://www.myhost.com'
-    host : '',
+    host : 'https://watson-wdc01.ihost.com',
     
     // enter watson instance name; e.g: '/deepqa/v1/question'
-    instance : '',
+    instance : '/instance/507/deepqa/v1/question',
     
     // enter authentication info; e.g: 'Basic c29tZXVzZXJpZDpzb21lcGFzc3dvcmQ='
-    auth : ''
+    auth : credentials.auth
 };
 
 
