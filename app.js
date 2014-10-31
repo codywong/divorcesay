@@ -8,21 +8,29 @@ var app = express();
 
 // Set the server port
 app.set('port', process.env.PORT || 3001);
-
-app.use(express.favicon());
-app.use(express.logger('dev'));
 app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
 
-// Development only
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+
 
 // Expose static web page resources
 app.use("/", express.static(__dirname + '/public'));
+
+
+////////////
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// use res.render to load up an ejs view file
+
+
+require('./routes/index.js')(app);
+
+
+
+
+
+
 
 // Get access to our Watson module
 var watson = require('./watson/watson');

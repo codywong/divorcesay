@@ -1,1 +1,6 @@
-watson/credentials.js
+config/credentials.js
+
+
+node_modules/*
+
+*.log

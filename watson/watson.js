@@ -1,4 +1,4 @@
-var credentials = require('./credentials');
+var credentials = require('../config/credentials');
 
 // Describe the Watson Endpoint
 // Specify the information and credentials pertinent to your Watson instance
