@@ -1,44 +1,40 @@
 
-// Module dependencies
-var express = require('express')
-  , http = require('http')
-  , path = require('path');
-
+// Module dependencies =========================================================
+var express = require('express');
 var app = express();
+var port = process.env.PORT || 3001;
 
-// Set the server port
-app.set('port', process.env.PORT || 3001);
-app.use(express.bodyParser());
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
 
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
 
-
-// Expose static web page resources
-app.use("/", express.static(__dirname + '/public'));
-
-
-////////////
-
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-
-// use res.render to load up an ejs view file
+var configDB = require('./config/database.js');
 
 
+// configuration ===============================================================
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/", express.static(__dirname + '/public')); // expose static resources
+
+app.set('view engine', 'ejs'); // set the view engine to ejs
+
+
+// routes ======================================================================
 require('./routes/index.js')(app);
 
 
+// configuration ===============================================================
+mongoose.connect(configDB.url); // connect to our database
 
 
-
-
-
-// Get access to our Watson module
-var watson = require('./watson/watson');
-// Set up RESTful resources
-// POST requests to /question are handled by ‘watson.question’
-app.post('/question', watson.question);
-
-// Start the http server
-http.createServer(app).listen(app.get('port'), function() {
-  console.log('Express server listening on port ' + app.get('port'));
-});
+app.listen(port);
+console.log('The magic happens on port ' + port);
