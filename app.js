@@ -17,6 +17,9 @@ var configDB = require('./config/database.js');
 
 
 // configuration ===============================================================
+mongoose.connect(configDB.url);  // connect to db
+require('./config/passport')(passport); // passport config
+
 
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
@@ -27,13 +30,16 @@ app.use("/", express.static(__dirname + '/public')); // expose static resources
 
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
+// required for passport
+app.use(session({ secret: 'thisisaveryverysecretsession' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
 
 // routes ======================================================================
-require('./routes/index.js')(app);
+require('./routes/index.js')(app, passport);
 
-
-// configuration ===============================================================
-mongoose.connect(configDB.url); // connect to our database
 
 
 app.listen(port);
