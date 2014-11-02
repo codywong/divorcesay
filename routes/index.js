@@ -4,7 +4,7 @@ var watson = require('./watson');
 
 module.exports = function(app, passport) {
     
-	// Home page 
+	// home page 
     app.get('/', function(req, res) {
         res.render('index');
     });
@@ -33,7 +33,15 @@ module.exports = function(app, passport) {
 		res.redirect('/');
 	});
 
+	// discounts page 
+    app.get('/discounts', function(req, res) {
+        res.render('discounts');
+    });
 
+	// discounts page 
+    app.get('/history', function(req, res) {
+        res.render('history');
+    });
 
     // process watson question
 	app.post('/question', watson.question);
