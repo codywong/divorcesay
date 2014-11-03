@@ -39,19 +39,20 @@ module.exports = function(app, passport) {
     });
 
 	// discounts page 
-    app.get('/history', function(req, res) {
-        res.render('history');
-    });
+    app.get('/history', watson.fetchHistory);
+
+    // link questions associated with session to current user login
+    app.get('/link', watson.linkHistory);
 
     // process watson question
 	app.post('/question', watson.question);
 
 	// process signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-	        successRedirect : '/profile', // redirect to the secure profile section
+	        successRedirect : '/link', // redirect to the secure profile section
 	        failureRedirect : '/signup', // redirect back to the signup page if there is an error
 	        failureFlash : true // allow flash messages
-	    }));
+    }));
 
 	// process the login form
     app.post('/login', passport.authenticate('local-login', {

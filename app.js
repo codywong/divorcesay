@@ -1,13 +1,12 @@
 
 // Module dependencies =========================================================
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 3001;
-
-var mongoose = require('mongoose');
-var passport = require('passport');
-var flash    = require('connect-flash');
-
+var express 	 = require('express');
+var app 		 = express();
+var port 		 = process.env.PORT || 3001;
+var mongoose 	 = require('mongoose');
+var fs 			 = require('fs');
+var passport   	 = require('passport');
+var flash     	 = require('connect-flash');
 var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');

@@ -7,6 +7,29 @@
 <body>
 
 Here are your past searches!!!!
+<br><br>
+
+<!-- loop through all questions -->
+<% for (var i = 0; i < results.length; ++i) { %>
+	<div>
+		<p> Question: <%= results[i].question %> </p>
+		<% var ans = JSON.parse(results[0].answer); %>
+		<ul>
+			<!-- Display all answers saved -->
+			<% for (var j = 0; j < ans.length; ++j) { %>
+			<li>
+				<%= ans[j].text %>
+				<br>
+				Confidence: <%= (ans[j].value * 100).toFixed(2) %> %
+			</li>
+			<% } %>
+
+		</ul>
+
+	</div>
+<% } %>
+
+
 
 <p><a href="/">Go back</a>.</p>
 
