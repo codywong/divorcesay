@@ -3,7 +3,14 @@ var watson = require('./watson');
 
 
 module.exports = function(app, passport) {
-    
+
+	// pass path to view
+	app.use(function(req, res, next){
+	  res.locals.path = req.path;
+	  res.locals.loggedIn = req.isAuthenticated()
+	  next();
+	});    
+
 	// home page 
     app.get('/', function(req, res) {
         res.render('index');
@@ -56,7 +63,7 @@ module.exports = function(app, passport) {
 
 	// process the login form
     app.post('/login', passport.authenticate('local-login', {
-        successRedirect : '/profile', // redirect to the secure profile section
+        successRedirect : '/', // redirect to the secure profile section
         failureRedirect : '/login', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));

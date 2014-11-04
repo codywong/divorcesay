@@ -1,0 +1,23 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+
+
+        <ul class="nav nav-pills" role="tablist" id="top">
+            <% if (path != '/') { %>
+                <li role="presentation"><a href="/">Home</a></li>
+            <% } %>
+
+            <li role="presentation"><a href="#">About Us</a></li>
+            <li role="presentation"><a href="/discounts">Discount</a></li>
+            <li role="presentation"><a href="/history">Q&A History</a></li>
+
+            <% if (!loggedIn) { %>
+                <li role="presentation"><a href="/login">Log In</a></li>
+            <% } else { %>
+                <li role="presentation"><a href="/logout">Log Out</a></li>
+            <% } %>
+            
+
+        </ul>
+        <!--/.navbar-collapse -->
+
+</div>

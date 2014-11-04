@@ -759,10 +759,6 @@ pre code {
   overflow-y: scroll;
 }
 .container {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
-  padding-right: 15px;
   display: table;
   vertical-align: middle;
 }
@@ -4050,7 +4046,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #00bc8c;
 }
 .navbar-inverse {
-  background-color: #00bc8c;
   border-color: transparent;
 }
 .navbar-inverse .navbar-brand {

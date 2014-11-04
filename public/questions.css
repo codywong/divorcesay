@@ -80,3 +80,8 @@
     border: 2px;
     height: 61px;
 }
+
+#top {
+    float: right;
+    background: transparent;
+}

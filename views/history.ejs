@@ -1,13 +1,13 @@
 <!doctype html>
 <html>
-<head>
-	<title>Divorcesay</title>
-
-</head>
+<% include header %>
 <body>
+<% include navbar %>
 
 Here are your past searches!!!!
 <br><br>
+
+<a href="javascript:window.print()">Print this page</a>
 
 <!-- loop through all questions -->
 <% for (var i = 0; i < results.length; ++i) { %>
