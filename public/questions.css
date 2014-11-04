@@ -1,6 +1,6 @@
 .main {
-    width: 75%;
-    height:75%;
+    width: 80%;
+    height: 80%;
     position: absolute;
     top:0;   bottom: 0;
     left: 0;
@@ -62,13 +62,17 @@
 #searchTerm {
 	min-width: 600px; 
 	max-width: 700px;
+    /*border-radius: 10px; */
+    border: #FFBEBE; 
+    border-style: solid;
+    border-width: 1px;
 }
  
 #submitSearchTerm {
 	color: #eee; 
-	background-color: #037E8C; 
+	background-color: #FF6E6E; 
 	vertical-align: middle; 
-	border-radius: 0px; 
+	border-radius: 5px; 
 	border: 2px;
 }
 
@@ -84,4 +88,19 @@
 #top {
     float: right;
     background: transparent;
+}
+
+#right {
+    padding-left: 2em;
+
+}
+
+#rightbox {
+    background: #666;
+    margin-top: 2em;
+}
+
+#logo {
+    margin: -40px 0 0 -15px;
+    width: 45%;
 }

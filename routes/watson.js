@@ -31,8 +31,9 @@ exports.question = function(req, res) {
     var questionEntity = {
         "question" : {
             "evidenceRequest": {
-            "items": 5
+            "items": 1
             },
+            "items"        : 1,
             "questionText" : req.body.question // The question
         }
     };
