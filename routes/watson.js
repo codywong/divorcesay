@@ -55,9 +55,10 @@ exports.question = function(req, res) {
     }, function(error, response, body) {
 
         // store question and answer (by userid if possible, or by sessionid)
-
+        var ques = body.question.questionText;
         var newResult = new Result();
-        newResult.question  = body.question.questionText;
+        // Capitalize first letter in sentence
+        newResult.question  = ques.charAt(0).toUpperCase() + ques.slice(1);
         newResult.answer    = JSON.stringify(body.question.evidencelist);
 
         // if user is logged in, store their userid, otherwise, store sessionid

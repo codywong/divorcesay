@@ -199,13 +199,7 @@ Divorcesay.App = function() {
         for (var i = 0; i< 5; ++i) {
             var name = "rec" + i;
             document.getElementById(name).innerHTML = suggestions.questions[i];
-            console.log(i);
-            console.log(name);
-            console.log(suggestions.questions);
         }
-
-        console.log("helloooooo");
-
     };
 
     // Initialize the application

@@ -174,3 +174,17 @@ body {
 #evidence0 {
     color: #bbbbbb;
 }
+
+.history {
+    width: 40%;
+    margin: auto;
+}
+
+#printButton {
+    float: right;
+    margin: -3em;
+}
+
+#anything { /*named by lucy*/
+    margin-top: 5em;
+}
