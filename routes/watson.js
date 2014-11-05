@@ -54,7 +54,7 @@ exports.question = function(req, res) {
 
     }, function(error, response, body) {
 
-        if(typeof(body.question) == 'undefined') {
+        if(typeof(body.question) == 'undefined' || error) {
             res.json(body);
             return;
         }
