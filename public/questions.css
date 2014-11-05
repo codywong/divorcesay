@@ -26,6 +26,7 @@
     padding: 5px 15px 10px;
 }
 
+
 .confidence {
     padding: 10px 15px 5px;
     color: #eeeeee;
@@ -96,12 +97,27 @@
 #right {
     padding-left: 2em;
 
+    position: relative;
 }
+
 
 .rightbox {
     background: #666;
     margin-top: 2em;
     padding: 10px;
+    width: 30%;
+    margin-right: 2em;
+
+
+}
+#recQuestions{
+  position: fixed;
+}
+#advertisement{
+  position: fixed;
+  margin-top: 2em;
+  margin-right: 4em;
+
 }
 
 #logo {

@@ -133,6 +133,8 @@ Divorcesay.App = function() {
         // Create a Ladda reference object 
         var l = Ladda.create(document.querySelector('button'));
         
+        if(!question) return;
+
         // Clear answers,disable search, and start the progress indicator
         clearAnswers()
         searchTerm.attr("disabled", "disabled");

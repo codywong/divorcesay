@@ -54,6 +54,10 @@ exports.question = function(req, res) {
 
     }, function(error, response, body) {
 
+        if(typeof(body.question) == 'undefined') {
+            res.json(body);
+            return;
+        }
         // store question and answer (by userid if possible, or by sessionid)
         var ques = body.question.questionText;
         var newResult = new Result();
