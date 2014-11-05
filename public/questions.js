@@ -182,11 +182,7 @@ Divorcesay.App = function() {
             }
         });
     };
-
-    var abc = function(){
-        alert("hello");
-    };
-
+    
     var updateSuggestions = function(suggestions) {
         var adBox = document.getElementById("advertisement");
         var adwords = $("adText");
