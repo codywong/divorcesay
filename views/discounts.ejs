@@ -1,14 +1,745 @@
 <!doctype html>
 <html>
-<% include header %>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+
+    <title>Divorcesay</title>
+
+    <script src="jquery/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Ladda -->
+    <link rel="stylesheet" href="ladda/ladda-themeless.min.css">
+
+    <!-- Slick -->
+    <link href="slick/slick.css" type="text/css" rel="stylesheet" />
+
+    <!-- Question css -->
+    <link href="questions.css" type="text/css" rel="stylesheet" />
+    <link href="discount.css" type="text/css" rel="stylesheet" />
+
+    
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com`libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+</head>
 <body>
-<% include navbar %>
-<div class="container">
-	<p>
-	blah blah blah discounts! make me look pretty! hahahah
-	</p>
-	<p><a href="/">Go back</a>.</p>
-</div>
+    <% include navbar %>
+    
+    <div id="background">
+       <video autoplay loop muted id="background-video" class="video" poster="media/sky.png">
+        <source src="media/sky.webm" type="video/webm"></source>
+        <img src="media/sky.png" />
+      </video>
+    </div>
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>
+                    <a href="#lawyer">Famlily Lawyer</a>
+                </li>
+                <li>
+                    <a href="#finance">Financial Planner</a>
+                </li>
+                <li>
+                    <a href="#estate">Real Estate</a>
+                </li>
+                <li>
+                    <a href="#childCare">Child Care</a>
+                </li>
+                <li>
+                    <a href="#childSupport">Child Support</a>
+                </li>
+                <li>
+                    <a href="#investment">Investment</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+
+            <div class="category" id="lawyer">
+                <div class="header-row">
+                    <h1>Family Laywer</h1>
+                </div>
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header one">
+                            <p>Firm 1</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header two">
+                            <p>Firm 2</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>20% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header three">
+                            <p>Firm 3</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>$100 Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header four">
+                            Firm 4
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header five">
+                            Firm 5
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header six">
+                            Firm 6
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category" id="finance">
+                <div class="header-row">
+                    <h1>Financial Planner</h1>
+                </div>
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header one">
+                            <p>Firm 1</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header two">
+                            <p>Firm 2</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>20% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header three">
+                            <p>Firm 3</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>$100 Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header four">
+                            Firm 4
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header five">
+                            Firm 5
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header six">
+                            Firm 6
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category" id="estate">
+                <div class="header-row">
+                    <h1>Real Estate</h1>
+                </div>
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header one">
+                            <p>Firm 1</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header two">
+                            <p>Firm 2</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>20% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header three">
+                            <p>Firm 3</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>$100 Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header four">
+                            Firm 4
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header five">
+                            Firm 5
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header six">
+                            Firm 6
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category" id="childCare">
+                <div class="header-row">
+                    <h1>Child Care</h1>
+                </div>
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header one">
+                            <p>Firm 1</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header two">
+                            <p>Firm 2</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>20% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header three">
+                            <p>Firm 3</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>$100 Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header four">
+                            Firm 4
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header five">
+                            Firm 5
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header six">
+                            Firm 6
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category" id="childSupport">
+                <div class="header-row">
+                    <h1>Child Support</h1>
+                </div>
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header one">
+                            <p>Firm 1</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header two">
+                            <p>Firm 2</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>20% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header three">
+                            <p>Firm 3</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>$100 Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header four">
+                            Firm 4
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header five">
+                            Firm 5
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header six">
+                            Firm 6
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category" id="investment">
+                <div class="header-row">
+                    <h1>Investment</h1>
+                </div>
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header one">
+                            <p>Firm 1</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header two">
+                            <p>Firm 2</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>20% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header three">
+                            <p>Firm 3</p>
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>$100 Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div> 
+                <div class="ads-row">
+                    <div class="ad">
+                        <div class="ad-header four">
+                            Firm 4
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header five">
+                            Firm 5
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                    <div class="ad">
+                        <div class="ad-header six">
+                            Firm 6
+                        </div>
+                        <div class="ad-content">
+                            <p>About Us</br>
+                                Services
+                            </p>
+                        </div>
+                        <div class="ad-footer">
+                            <p>10% Off</p>
+                            <button type="button" class="redeem" data-toggle="modal" data-target="#myModal">
+                                Redeem
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                    <p>The firm has been alerted. Please contact (xxx)-xxx-xxxx to book an appointment.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary modal-save">Save</button>
+                    <button type="button" class="btn btn-default modal-close" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div>
+    </div>
+
+
 
 </body>
 </html>
