@@ -3,7 +3,17 @@
 <% include header %>
 <body>
 	<% include navbar %>
-	
+
+     <div id="background">
+       <video autoplay loop muted id="background-video" class="video" poster="media/sky.png">
+        <source src="media/sky.webm" type="video/webm"></source>
+        <img src="media/sky.png" />
+      </video>
+    </div>
+
+    <!-- <div id="skyline"></div> -->
+    <div id="cover"></div>
+
     <div class="main">
 	<div class="container">
 		<div class="row">
@@ -21,7 +31,7 @@
 						target="form-iframe">
 						<div class="form-group">
 							<div id="sampleQuestions">
-								<input id="searchTerm" x-webkit-speech="x-webkit-speech"
+								<input id="searchTerm" 
 									class="form-control"
 									placeholder="Ask Watson about divorce in a Natural Language.">
 								<button type="submit" id="submitSearchTerm"
@@ -40,16 +50,26 @@
 					</form>
 				</div>
 				<div class="row">
-					<div id="answerCarousel" class="single-item answer" style="margin-top: 10px;"></div>
+					<div id="answerCarousel" class="single-item answer"></div>
 					<iframe name="form-iframe" src="about:blank" class="hidden"></iframe>
 				</div>
 			</div>
 			<div class="col-md-4" id="right">
-				<div class="row" id="rightbox">
-					<p> advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box advertisement box  </p>
+				<div class="row">
+					<div class="rightbox" id="advertisement">Going through a divorce is hard. 
+						We understand and are here to help. We've partnered with lawyers, and other legal services.
+						<br><br><a href='/discounts'>Click here</a> 
+						to get access to special discount rates.
+					</div>
 				</div>
-				<div class="row" id="rightbox">
-					<p> suggested question box </p>
+				<div class="row">
+					<div class="rightbox" id="recQuestions">
+						<p id="rec0">What is a divorce?</p>
+						<p id="rec1">How long does a divorce take?</p>
+						<p id="rec2">What is the difference between a mediated and collaborated divorce?</p>
+						<p id="rec3">Can I prevent my spouse from having custody?</p>
+						<p id="rec4">What is required to serve a document?</p>
+					</div>
 				</div>
 			</div>
 		</div>

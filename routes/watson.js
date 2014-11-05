@@ -75,8 +75,10 @@ exports.question = function(req, res) {
                 throw err;
         });
 
+        // get suggestions for personalised ads and questions
+        body.suggestions = suggestedContent(body.question.questionText);
 
-
+        console.log(body);
         // Return the QAAPI response in the entity body
         res.json(body);
 
@@ -123,3 +125,38 @@ exports.linkHistory = function(req, res) {
     res.redirect('/profile');
 }
 
+
+var suggestedContent = function(question) {
+    var suggestions = {};
+
+    var lcQuestion = question.toLowerCase();
+    if(lcQuestion.indexOf('child') >= 0 || lcQuestion.indexOf('custody') >= 0) {
+        suggestions.questions = [ 'What is child custody?'
+                                , 'What laws affect who gets custody?'
+                                , 'What is joint custody?'
+                                , 'What is the difference between joint and shared custody?'
+                                , 'What is child access?'];
+        suggestions.advertisement = 'child counselling services, daycares, and babysitters';
+        suggestions.url = '/discounts/children'
+    }
+    else if(lcQuestion.indexOf('house') >= 0 || lcQuestion.indexOf('home') >= 0) {
+        suggestions.questions = [ 'What is a matrimonial home?'
+                                , 'How is the ownership of a matrimonial house decided?'
+                                , 'Who will pay for the mortgage, and insurance until the house is sold?'
+                                , 'How is the property split if it was mine before I got married?'
+                                , 'Who will have to pay for maintenance of the house during the divorce?'];
+        suggestions.advertisement = 'real estate agents, home inspectors, and mortage consultants';
+        suggestions.url = '/discounts/realestate'
+    } else {
+        suggestions.questions = [ 'What is a divorce?'
+                                , 'How long does a divorce take?'
+                                , 'What is the difference between a mediated and collaborated divorce?'
+                                , 'Can I prevent my spouse from having custody?'
+                                , 'What is required to serve a document?'];
+        suggestions.advertisement = 'lawyers, and other legal services';
+        suggestions.url = '/discounts/lawyers'
+
+    }
+
+    return suggestions;
+}

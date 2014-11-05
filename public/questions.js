@@ -159,6 +159,7 @@ Divorcesay.App = function() {
                 // Display answers or error
                 if (r.question !== undefined) {
                     displayAnswers(r);
+                    updateSuggestions(r.suggestions);
                 } else {
                     alert(r);
                 }
@@ -178,6 +179,33 @@ Divorcesay.App = function() {
                 
             }
         });
+    };
+
+    var abc = function(){
+        alert("hello");
+    };
+
+    var updateSuggestions = function(suggestions) {
+        var adBox = document.getElementById("advertisement");
+        var adwords = $("adText");
+
+        adBox.innerHTML = "Going through a divorce is hard. We understand and are here to help. "
+                            + "We've partnered with " + suggestions.advertisement + ".<br><br> "
+                            + "<a href='/discounts'>Click here</a>"
+                            //------------------------------------------------------
+                            // when amy commits her code, change '/discounts', to suggestions.url
+                            + " to get access to special discount rates.";
+
+        for (var i = 0; i< 5; ++i) {
+            var name = "rec" + i;
+            document.getElementById(name).innerHTML = suggestions.questions[i];
+            console.log(i);
+            console.log(name);
+            console.log(suggestions.questions);
+        }
+
+        console.log("helloooooo");
+
     };
 
     // Initialize the application
