@@ -52,7 +52,7 @@ Divorcesay.App = function() {
     // Create a 'Slick Carousel' slide that hosts an answer
     // and its confidence
     var createAnswerSlide = function(i, r) {
-        var answer = r.question.answers[i];
+        var answer = r.question.evidencelist[i];
         var answerContainerDiv, answerDiv, confidenceDiv, evidenceRef;
 
         answerContainerDiv = $("<div>");
@@ -72,7 +72,7 @@ Divorcesay.App = function() {
         evidenceRef = $('<a>', {
             'href' : '#',
             'id' : 'evidence' + i,
-            'text' : (answer.confidence * 100).toFixed(2) + "%",
+            'text' : (r.question.answers[i].confidence * 100).toFixed(2) + "%",
             'class' : 'clink' + i,
             'onclick' : "$('#evidence-" + i + "').modal('show'); return false;"
         });

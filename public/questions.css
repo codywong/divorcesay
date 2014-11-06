@@ -29,7 +29,7 @@
 
 .confidence {
     padding: 10px 15px 5px;
-    color: #eeeeee;
+    color: black;
 }
 
 .hidden {
@@ -121,8 +121,9 @@
 }
 
 #logo {
-    margin: -40px 0 0 -15px;
-    width: 45%;
+    margin: -40px -15px 0 -15px;
+    width: 75%;
+    margin-bottom: -60px;
 }
 
 video#background-video {
@@ -148,7 +149,9 @@ div#cover {
   position: fixed;
   width: 100%;
   height: 100%;
-  /*background-image: url(../media/blue.png);*/
+  /*background-color: #47D1D1;*/
+  /*background: linear-gradient(rgb(255, 110, 110), white);*/
+  background: linear-gradient(black, rgba(0,0,0,.3));
   top: 0;
   left: 0;
   background-blend-mode: multiply;
@@ -156,7 +159,7 @@ div#cover {
   -ms-filter: alpha(Opacity=60);
   -moz-opacity: .6;
   -khtml-opacity: .6;
-  opacity: .4;
+  opacity: .5;
 }
 
 div#skyline {
@@ -181,14 +184,19 @@ body {
   font-size: 15px;
   line-height: 1.42857143;
   color: #ffffff;
+
 }
 
 #answerCarousel {
     margin-top: 20px;
+    background-color: white;
+    height: 200px;
+    width: 600px;
+    overflow: auto;
 }
 
 #evidence0 {
-    color: #bbbbbb;
+    color: rgb(66, 139, 202);
 }
 
 .history {
@@ -204,3 +212,29 @@ body {
 #anything { /*named by lucy*/
     margin-top: 5em;
 }
+
+#test {
+  background: url(../media/new.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+
+}
+
+#advertisement, #recQuestions {
+  /*background: url(../media/mintblue.jpg);*/
+  filter: alpha(opacity=70);
+  -ms-filter: alpha(Opacity=70);
+  -moz-opacity: .7;
+  -khtml-opacity: .7;
+  /*opacity: .;*/
+  /*background-color: rgba(71, 209, 209, 0.6);*/
+  background-color: rgba(0,0,10, 0.6);
+}
+
+#panswer0 {
+  color: black;
+}
+
+
