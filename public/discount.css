@@ -39,6 +39,7 @@
     position: relative;
     color: black;
     overflow-y: scroll;
+    background-color: rgba(250, 250, 250, .95);
 }
 
 /* Sidebar Styles */

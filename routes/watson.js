@@ -142,7 +142,7 @@ var suggestedContent = function(question) {
                                 , 'What is the difference between joint and shared custody?'
                                 , 'What is child access?'];
         suggestions.advertisement = 'child counselling services, daycares, and babysitters';
-        suggestions.url = '/discounts/children'
+        suggestions.url = '/discounts#childCare'
     }
     else if(lcQuestion.indexOf('house') >= 0 || lcQuestion.indexOf('home') >= 0) {
         suggestions.questions = [ 'What is a matrimonial home?'
@@ -151,7 +151,7 @@ var suggestedContent = function(question) {
                                 , 'How is the property split if it was mine before I got married?'
                                 , 'Who will have to pay for maintenance of the house during the divorce?'];
         suggestions.advertisement = 'real estate agents, home inspectors, and mortage consultants';
-        suggestions.url = '/discounts/realestate'
+        suggestions.url = '/discounts#estate'
     } else {
         suggestions.questions = [ 'What is a divorce?'
                                 , 'How long does a divorce take?'
@@ -159,7 +159,7 @@ var suggestedContent = function(question) {
                                 , 'Can I prevent my spouse from having custody?'
                                 , 'What is required to serve a document?'];
         suggestions.advertisement = 'lawyers, and other legal services';
-        suggestions.url = '/discounts/lawyers'
+        suggestions.url = '/discounts#lawyer'
 
     }
 

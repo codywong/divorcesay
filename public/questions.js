@@ -189,9 +189,7 @@ Divorcesay.App = function() {
 
         adBox.innerHTML = "Going through a divorce is hard. We understand and are here to help. "
                             + "We've partnered with " + suggestions.advertisement + ".<br><br> "
-                            + "<a href='/discounts'>Click here</a>"
-                            //------------------------------------------------------
-                            // when amy commits her code, change '/discounts', to suggestions.url
+                            + "<a href=" + suggestions.url + ">Click here</a>"
                             + " to get access to special discount rates.";
 
         for (var i = 0; i< 5; ++i) {
