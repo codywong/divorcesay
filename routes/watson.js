@@ -83,7 +83,7 @@ exports.question = function(req, res) {
         // get suggestions for personalised ads and questions
         body.suggestions = suggestedContent(body.question.questionText);
 
-        console.log(body);
+        // console.log(body);
         // Return the QAAPI response in the entity body
         res.json(body);
 
@@ -91,7 +91,32 @@ exports.question = function(req, res) {
     });
 }
 
-exports.fetchHistory = function(req, res) {
+exports.getAccountHistory = function(req, res) {
+    if (req.isAuthenticated()) {
+        Result.find({user: req.user}, null, {sort: {created_at: 'desc'}}, 
+            function(err, searches){
+                console.log(searches);
+                res.render('index', {
+                    savedSearches : searches
+                });
+
+        });
+    }
+    else { // user is not logged on, find results based on sessionID
+        Result.find({sessionID: req.session.id, user : { $exists: false }}, null
+            , {sort: {created_at: 'desc'}}, function(err, searches){
+                console.log(searches);
+                res.render('index', {
+                    savedSearches : searches
+                });
+
+        });
+    }
+}
+
+
+// used to find history from database to display in /history page
+exports.fetchHistoryPage = function(req, res) {
 
     // find previous results associated to account
     if (req.isAuthenticated()) {
@@ -153,11 +178,6 @@ var suggestedContent = function(question) {
         suggestions.advertisement = 'real estate agents, home inspectors, and mortage consultants';
         suggestions.url = '/discounts#estate'
     } else {
-        suggestions.questions = [ 'What is a divorce?'
-                                , 'How long does a divorce take?'
-                                , 'What is the difference between a mediated and collaborated divorce?'
-                                , 'Can I prevent my spouse from having custody?'
-                                , 'What is required to serve a document?'];
         suggestions.advertisement = 'lawyers, and other legal services';
         suggestions.url = '/discounts#lawyer'
 

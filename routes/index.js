@@ -12,9 +12,7 @@ module.exports = function(app, passport) {
 	});    
 
 	// home page 
-    app.get('/', function(req, res) {
-        res.render('index');
-    });
+    app.get('/', watson.getAccountHistory);
 
 	// log in
 	app.get('/login', function(req, res) {
@@ -45,8 +43,8 @@ module.exports = function(app, passport) {
         res.render('discounts');
     });
 
-	// discounts page 
-    app.get('/history', watson.fetchHistory);
+	// history page 
+    app.get('/history', watson.fetchHistoryPage);
 
     // link questions associated with session to current user login
     app.get('/link', watson.linkHistory);

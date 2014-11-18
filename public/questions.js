@@ -3,26 +3,27 @@ var Divorcesay = Divorcesay || {};
 Divorcesay.App = function() {
     // The current Slick Carousel index
     var slickIndex = 0;
-    
-    // Initialize sample questions dropdown button
-    var initSampleQuestions = function() {
-        var searchForm = $("#searchForm");
-        var samples = $('#sampleQuestions ul');
-        var questions = [
-                         'Which movie is about a fetus floating above the Earth?',
-                         'What is important for synchronous sound film making?',
-                         'How is tachometer used during film making?',
-                         'What is Rank-Cintel telecine?',
-                         'When were the first Outstanding Achievement Awards held?',
-                         'What was the conversation between Glennon and Jack Warner about?',
-                         'Where did the actors who played the roles of small aliens in the final scene of Close Encounters of the Third Kind hail from?',
-                         'Why did Speilberg choose the girls from Mobile for Close Encounters of the Third Kind?',
-                         'Was Zhivago shown in Russia in 2001?'
+
+    var defaultSuggestedQuestions = [
+                         'What is a divorce?',
+                         'How long does a divorce take?',
+                         'What is the difference between a mediated and collaborated divorce?',
+                         'Can I prevent my spouse from having custody?',
+                         'What is required to serve a document?'
                          ];
+
+
+    // Initialize recommended questions
+    var setUpRecommendedQuestions = function(questions) {
+        if (!questions) questions = defaultSuggestedQuestions;
+        var searchForm = $("#searchForm");
+        var samples = $('#recQuestionsList');
+        samples.empty();
+        
         
         // Add sample questions to the dropdown list
         for (var i = 0; i < questions.length; i++) {
-            samples.append('<li><a class="sampleQuestion"><i class="icon-arrow-up"></i> '+questions[i]+'</a><li>');
+            samples.append('<li><a class="sampleQuestion">'+questions[i]+'</a></li>');
         }
         
         $('.sampleQuestion').click(function(e) {
@@ -192,10 +193,7 @@ Divorcesay.App = function() {
                             + "<a href=" + suggestions.url + ">Click here</a>"
                             + " to get access to special discount rates.";
 
-        for (var i = 0; i< 5; ++i) {
-            var name = "rec" + i;
-            document.getElementById(name).innerHTML = suggestions.questions[i];
-        }
+        setUpRecommendedQuestions(suggestions.questions);
     };
 
     // Initialize the application
@@ -231,7 +229,7 @@ Divorcesay.App = function() {
         });
         
         // Initialize the sample questions dropdown
-        initSampleQuestions();
+        setUpRecommendedQuestions(defaultSuggestedQuestions);
     };
 
     // Expose privileged methods
