@@ -60,10 +60,13 @@
 .slick-dots li button:before {
     color: white; 
 }
+#searchForm{
+  margin-top: 2em;
+}
 
 #searchTerm {
-	min-width: 600px; 
-	max-width: 700px;
+
+    width: 70%;
     background-color: #FFFFFF;
     /*border-radius: 10px; */
     border: #FFBEBE; 
@@ -72,8 +75,9 @@
     -webkit-box-shadow: 0 0 0 1000px white inset;
 
 }
- 
+
 #submitSearchTerm {
+  width: 30%
 	color: #eee; 
 	background-color: #FF6E6E; 
 	vertical-align: middle; 
@@ -103,6 +107,7 @@
 
 
 .rightbox {
+    border-radius: 5px;
     background: #666;
     margin-top: 2em;
     padding: 10px;
@@ -115,6 +120,7 @@
   position: fixed;
 }
 #advertisement{
+
   position: fixed;
   margin-top: 2em;
   margin-right: 4em;
@@ -127,6 +133,17 @@
     margin-bottom: -60px;
 }
 
+#logo2 {
+    margin: -40px -15px 0 -15px;
+    width: 35%;
+ 
+    margin-top: -210px;
+    margin-bottom: -60px;
+}
+
+#slogan {
+ margin-top: -55px
+}
 video#background-video {
   position: fixed;
   width: auto;
@@ -234,7 +251,7 @@ body {
   -khtml-opacity: .7;
   /*opacity: .;*/
   /*background-color: rgba(71, 209, 209, 0.6);*/
-  background-color: rgba(0,0,10, 0.8);
+  background-color: black;
 }
 
 #panswer0 {

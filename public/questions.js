@@ -19,6 +19,7 @@ Divorcesay.App = function() {
         var searchForm = $("#searchForm");
         var samples = $('#recQuestionsList');
         samples.empty();
+
         
         
         // Add sample questions to the dropdown list
@@ -34,6 +35,9 @@ Divorcesay.App = function() {
         });
         
     };
+
+
+
 
     // Create a modal dialog to host an answer's evidence
     var createEvidenceModal = function(i, r) {
@@ -98,7 +102,7 @@ Divorcesay.App = function() {
 
         if (r.question.answers[0] !== undefined) {
             answerText = r.question.answers[0].text
-            console.log('answer: ' + answerText);
+            // console.log('answer: ' + answerText);
             slickIndex = r.question.answers.length;
         }
 
@@ -163,6 +167,8 @@ Divorcesay.App = function() {
                 if (r.question !== undefined) {
                     displayAnswers(r);
                     updateSuggestions(r.suggestions);
+
+                    // displayHistory();
                 } else {
                     alert(r);
                 }
@@ -195,6 +201,32 @@ Divorcesay.App = function() {
 
         setUpRecommendedQuestions(suggestions.questions);
     };
+
+    var displayHistory = function() {
+        // var abc = <%- JSON.stringify(savedSearches) %>;
+        // alert("ebgegbrbgrw");
+        var historyList = $("#history");
+        historyList.empty();
+        // console.log(search);
+
+        console.log(savedSearches.length);  
+     
+        // asdf = JSON.decode(codyissosmart);
+        for (var i = 0; i < savedSearches.length; i++){
+            historyList.append('<li>' + savedSearches[i].question +'</li>');
+            console.log(savedSearches[i].question);
+        }
+        // console.log(codyissosmart[0].question);
+
+        // var history = savedSearches;
+        // //history.empty();
+        // alert(history);
+
+        // for (var i = 0; i < questions.length; i++) {
+        //     history1.append('<div>history[0].question</div>');
+        // }
+    }
+
 
     // Initialize the application
     var init = function() {
@@ -230,6 +262,8 @@ Divorcesay.App = function() {
         
         // Initialize the sample questions dropdown
         setUpRecommendedQuestions(defaultSuggestedQuestions);
+        displayHistory();
+
     };
 
     // Expose privileged methods

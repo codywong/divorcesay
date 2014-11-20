@@ -21,61 +21,42 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8" id="left">
-				<div class="row">
-					<div class="page-header">
-						<h2>
-							<img id="logo" src="media/divorcesay-logo.png">
-							<h4>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspAsk questions. Find answers. Win your divorce.</h4>
-						</h2>
-					</div>
-				</div>
+				
 				<div class="row">
 					<form id="searchForm" class="form-inline" role="form"
 						target="form-iframe">
-						<div class="form-group">
-							<div id="sampleQuestions">
+					
+						
 								<input id="searchTerm" 
 									class="form-control"
-									placeholder="Ask Watson about divorce in a Natural Language." autocomplete="off">
+									placeholder="Ask Watson about divorce in English." autocomplete="off">
+						
+						
 								<button type="submit" id="submitSearchTerm"
 									class="btn btn-lg btn-primary ladda-button"
-									data-style="expand-right">
-									<span class="ladda-label">Ask Watson</span>
+									data-style="zoom-out">
+									<span class="ladda-label">Ask Divorcesay</span>
 								</button>
 	<!-- <a 
 	class="btn bton-lg btn-primary dropdown-toggle dropDownSampleQuestion"
 	data-toggle="dropdown" href="#"> <span class="caret"></span>
 	</a> -->
-								<ul class="dropdown-menu">
-								</ul>
-							</div>
-						</div>
+						
+						
 					</form>
 				</div>
 				<div class="row">
 					<div id="answerCarousel" class="single-item answer"></div>
 					<iframe name="form-iframe" src="about:blank" class="hidden"></iframe>
 				</div>
+
+
+
+				<ul class="row" id="history"> 
+					<li>haha</li>
+				</ul>
 			</div>
 			<div class="col-md-4" id="right">
-				<div class="row">
-					<div class="rightbox" id="advertisement">Going through a divorce is hard. 
-						We understand and are here to help. We've partnered with lawyers, and other legal services.
-						<br><br><a href='/discounts#lawyer'>Click here</a> 
-						to get access to special discount rates.
-					</div>
-				</div>
-
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-
-
 				<div class="row">
 					<div class="rightbox" id="recQuestions">
 						<h3 id="suggestedQuestion">Suggested Questions: </h3>
@@ -83,6 +64,35 @@
 						</ul>
 					</div>
 				</div>
+
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+			</br>
+
+				<div class="row">
+
+
+					<div class="rightbox" id="advertisement">Going through a divorce is hard. 
+						We understand and are here to help. We've partnered with lawyers, and other legal services.
+						<br><br><a href='/discounts#lawyer'>Click here</a> 
+						to get access to special discount rates.
+					</div>
+				</div>
+
+
+
+
+				
 			</div>
 		</div>
 	</div>
@@ -115,6 +125,9 @@
 	</div>
 
 
+	<script type="text/javascript">
+		var savedSearches = <%- JSON.stringify(savedSearches) %>;
+	</script>
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="jquery/jquery-2.1.0.min.js"></script>
 	<!-- Include all compiled plugins (below), or include individual files as needed -->
