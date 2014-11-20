@@ -58,12 +58,21 @@ exports.question = function(req, res) {
             res.json(body);
             return;
         }
+
+        // provide high/medium/low values for confidence
+        var confidenceValue = body.question.evidencelist[0].value;
+        body.confidence = confidenceScale(confidenceValue);
+
+
         // store question and answer (by userid if possible, or by sessionid)
         var ques = body.question.questionText;
         var newResult = new Result();
         // Capitalize first letter in sentence
         newResult.question  = ques.charAt(0).toUpperCase() + ques.slice(1);
         newResult.answer    = JSON.stringify(body.question.evidencelist);
+        newResult.created_at = Date.now();
+        newResult.confidenceLevel = body.confidence.level;
+        newResult.confidenceColor = body.confidence.colorIndicator;
 
         // if user is logged in, store their userid, otherwise, store sessionid
         if (req.user) {
@@ -80,10 +89,15 @@ exports.question = function(req, res) {
                 throw err;
         });
 
+
         // get suggestions for personalised ads and questions
         body.suggestions = suggestedContent(body.question.questionText);
 
-        // console.log(body);
+        
+
+        console.log(body);
+
+        console.log("confidence: " + confidenceValue);
         // Return the QAAPI response in the entity body
         res.json(body);
 
@@ -95,7 +109,7 @@ exports.getAccountHistory = function(req, res) {
     if (req.isAuthenticated()) {
         Result.find({user: req.user}, null, {sort: {created_at: 'desc'}}, 
             function(err, searches){
-                console.log(searches);
+                // console.log(searches);
                 res.render('index', {
                     savedSearches : searches
                 });
@@ -105,7 +119,7 @@ exports.getAccountHistory = function(req, res) {
     else { // user is not logged on, find results based on sessionID
         Result.find({sessionID: req.session.id, user : { $exists: false }}, null
             , {sort: {created_at: 'desc'}}, function(err, searches){
-                console.log(searches);
+                // console.log(searches);
                 res.render('index', {
                     savedSearches : searches
                 });
@@ -155,6 +169,23 @@ exports.linkHistory = function(req, res) {
     res.redirect('/');
 }
 
+// given a confidence value, gives a high/medium/low and green/yellow/red object
+var confidenceScale = function(c) {
+    confidenceInfo = {};
+
+    if (c >= 0.6) {
+        confidenceInfo.level = "HIGH";
+        confidenceInfo.colorIndicator = "green";
+    } else if (c >= 0.3) {
+        confidenceInfo.level = "MEDIUM";
+        confidenceInfo.colorIndicator = "yellow";
+    } else {
+        confidenceInfo.level = "LOW";
+        confidenceInfo.colorIndicator = "red"; 
+    }
+
+    return confidenceInfo;
+};
 
 var suggestedContent = function(question) {
     var suggestions = {};

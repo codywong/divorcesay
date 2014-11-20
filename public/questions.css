@@ -8,16 +8,24 @@
     margin: auto;
 }
 
-.answer {
-	border:3px solid #ff7373;
-	border-bottom-right-radius:1px;
-    padding: 20px 10 20px;
-    /*opacity: 0.4;*/
-    min-width: 600px;
+.searches {
+    width:70%;
     max-width: 760px;
-    color: #fff;
+    color: #000;
     font-size: 19px;
-    background-color: rgba(0, 153, 178, 0.8);
+    background-color: white;
+    padding: 5px;
+    margin-left:auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.answer {
+  font-size: 70%;
+}
+
+#history {
+  width:90%;
 }
 
 .answerContent {
@@ -77,7 +85,7 @@
 }
 
 #submitSearchTerm {
-  width: 30%
+  width: 20%;
 	color: #eee; 
 	background-color: #FF6E6E; 
 	vertical-align: middle; 
@@ -218,7 +226,7 @@ body {
     color: rgb(66, 139, 202);
 }
 
-.history {
+.historyPage {
     width: 40%;
     margin: auto;
 }
@@ -262,4 +270,27 @@ body {
   margin-top: -3px;
   text-decoration: underline;
   font-size: 200%;
+}
+
+
+.confidence {
+  display: inline;
+  margin-left: 0px;
+  padding: 0px;
+  font-size: 80%;
+
+}
+
+.green {
+  font-weight: bold;
+  color: green;
+}
+
+.yellow {
+  font-weight: bold;
+  color: #D1A319;
+}
+.red {
+  font-weight: bold;
+  color: red;
 }

@@ -20,8 +20,6 @@ Divorcesay.App = function() {
         var samples = $('#recQuestionsList');
         samples.empty();
 
-        
-        
         // Add sample questions to the dropdown list
         for (var i = 0; i < questions.length; i++) {
             samples.append('<li><a class="sampleQuestion">'+questions[i]+'</a></li>');
@@ -102,7 +100,6 @@ Divorcesay.App = function() {
 
         if (r.question.answers[0] !== undefined) {
             answerText = r.question.answers[0].text
-            // console.log('answer: ' + answerText);
             slickIndex = r.question.answers.length;
         }
 
@@ -165,13 +162,10 @@ Divorcesay.App = function() {
                 
                 // Display answers or error
                 if (r.question !== undefined) {
-                    displayAnswers(r);
-                    updateSuggestions(r.suggestions);
-
-                    // displayHistory();
-                } else {
+                    updateResults(r);
+                } /*else {
                     alert(r);
-                }
+                }*/
             },
             error : function(r, msg, e) {
                 // Enable search and stop progress indicator
@@ -190,6 +184,22 @@ Divorcesay.App = function() {
         });
     };
     
+    var updateResults = function(r) {
+        $('#searchTerm').val("");
+        var historyList = $('#history');
+        historyList.prepend('<div class="searches">' + r.question.questionText + '<br>'
+                            + '<p class="confidence"> Confidence: </p>'
+                            + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
+                                + r.confidence.level + '</p>'
+                            + '<br>'
+                            + '<p class="answer">' + r.question.evidencelist[0].text + '</p>'
+                            +'</div>');
+
+
+        updateSuggestions(r.suggestions);
+
+    };
+
     var updateSuggestions = function(suggestions) {
         var adBox = document.getElementById("advertisement");
         var adwords = $("adText");
@@ -203,28 +213,18 @@ Divorcesay.App = function() {
     };
 
     var displayHistory = function() {
-        // var abc = <%- JSON.stringify(savedSearches) %>;
-        // alert("ebgegbrbgrw");
-        var historyList = $("#history");
-        historyList.empty();
-        // console.log(search);
+        var historyList = $('#history');
 
-        console.log(savedSearches.length);  
-     
-        // asdf = JSON.decode(codyissosmart);
         for (var i = 0; i < savedSearches.length; i++){
-            historyList.append('<li>' + savedSearches[i].question +'</li>');
-            console.log(savedSearches[i].question);
+            var ans = JSON.parse(savedSearches[i].answer);
+            historyList.append('<div class="searches">' + savedSearches[i].question + '<br>'
+                            + '<p class="confidence"> Confidence: </p>'
+                            + '<p class="' + savedSearches[i].confidenceColor + ' confidence">' 
+                                + savedSearches[i].confidenceLevel + '</p>'
+                            + '<br>'
+                            + '<p class="answer">' + ans[0].text + '</p>'
+                            +'</div>');
         }
-        // console.log(codyissosmart[0].question);
-
-        // var history = savedSearches;
-        // //history.empty();
-        // alert(history);
-
-        // for (var i = 0; i < questions.length; i++) {
-        //     history1.append('<div>history[0].question</div>');
-        // }
     }
 
 

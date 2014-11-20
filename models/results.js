@@ -8,9 +8,10 @@ var resultSchema = new Schema({
     question	: String,
     answer		: String,
     sessionID	: String,
+    confidenceLevel: String,
+    confidenceColor: String,
     created_at  : { 
 		type: Date, 
-		default: Date.now() 
 	},
     user 		: {
     	type: Schema.ObjectId,

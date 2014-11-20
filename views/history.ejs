@@ -5,7 +5,7 @@
 <% include navbar %>
 <div id="anything">
 
-	<div class="history">
+	<div class="historyPage">
 		<h1>History </h1>
 		<% if (results.length > 0) { %>
 				<a href="javascript:window.print()" class="btn btn-default" id="printButton">
@@ -16,7 +16,7 @@
 	</div>		
 	<!-- loop through all questions -->
 	<% for (var i = results.length-1; i >= 0; --i) { %>
-		<div class="history">
+		<div class="historyPage">
 			<h3><%= results[i].question %> </h3>
 			<% var ans = JSON.parse(results[i].answer); %>
 			<ul>
