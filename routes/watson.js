@@ -176,7 +176,7 @@ var confidenceScale = function(c) {
     if (c >= 0.6) {
         confidenceInfo.level = "HIGH";
         confidenceInfo.colorIndicator = "green";
-    } else if (c >= 0.3) {
+    } else if (c >= 0.25) {
         confidenceInfo.level = "MEDIUM";
         confidenceInfo.colorIndicator = "yellow";
     } else {

@@ -191,10 +191,11 @@ Divorcesay.App = function() {
                             + '<p class="confidence"> Confidence: </p>'
                             + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
                                 + r.confidence.level + '</p>'
-                            + '<br>'
+                            + '<br><br>'
                             + '<p class="answer">' + r.question.evidencelist[0].text + '</p>'
                             +'</div>');
-
+        historyList.children().first().hide().slideDown(1500)
+            .animate( { opacity: 1 }, { queue: false, duration: 1500 } );
 
         updateSuggestions(r.suggestions);
 
@@ -221,7 +222,7 @@ Divorcesay.App = function() {
                             + '<p class="confidence"> Confidence: </p>'
                             + '<p class="' + savedSearches[i].confidenceColor + ' confidence">' 
                                 + savedSearches[i].confidenceLevel + '</p>'
-                            + '<br>'
+                            + '<br><br>'
                             + '<p class="answer">' + ans[0].text + '</p>'
                             +'</div>');
         }
