@@ -28,14 +28,11 @@ Divorcesay.App = function() {
         $('.sampleQuestion').click(function(e) {
             // On click, get the selected question text and submit the form 
             $('#searchTerm').val($(this).text());
-            searchForm.submit();
+            //searchForm.submit();
             e.preventDefault();
         });
         
     };
-
-
-
 
     // Create a modal dialog to host an answer's evidence
     var createEvidenceModal = function(i, r) {
@@ -187,6 +184,13 @@ Divorcesay.App = function() {
     var updateResults = function(r) {
         $('#searchTerm').val("");
         var historyList = $('#history');
+        // historyList.prepend('<div class="searches">' + r.question.questionText + '<br>'
+        //                     + '<p class="confidence"> Confidence: </p>'
+        //                     + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
+        //                         + r.confidence.level + '</p>'
+        //                     + '<br><br>'
+        //                     + '<p class="answer">' + r.question.answers[0].formattedText + '</p>'
+        //                     +'</div>');
         historyList.prepend('<div class="searches">' + r.question.questionText + '<br>'
                             + '<p class="confidence"> Confidence: </p>'
                             + '<p class="' + r.confidence.colorIndicator + ' confidence">' 

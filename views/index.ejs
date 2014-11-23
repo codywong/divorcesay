@@ -12,109 +12,87 @@
         <source src="media/sky.webm" type="video/webm"></source>
         <img src="media/sky.png" />
       </video>
-    </div> -->
+  </div> -->
 
-    <!-- <div id="skyline"></div> -->
-    
-
-    <div class="main">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8" id="left">
-				
-				<div class="row">
-					<form id="searchForm" class="form-inline" role="form"
-						target="form-iframe">
-					
-						
-								<input id="searchTerm" 
-									class="form-control"
-									placeholder="Ask Watson about divorce in English." autocomplete="off">
-						
-						
-								<button type="submit" id="submitSearchTerm"
-									class="btn btn-lg btn-primary ladda-button"
-									data-style="zoom-out">
-									<span class="ladda-label buttonText">Ask Divorcesay</span>
-								</button>
-	<!-- <a 
-	class="btn bton-lg btn-primary dropdown-toggle dropDownSampleQuestion"
-	data-toggle="dropdown" href="#"> <span class="caret"></span>
-	</a> -->
-						
-						
-					</form>
-				</div>
-				<div class="row">
-					<div id="answerCarousel" class="single-item answer"></div>
-					<iframe name="form-iframe" src="about:blank" class="hidden"></iframe>
-				</div>
+  <!-- <div id="skyline"></div> -->
 
 
-				<div class="row" id="history">
-				</div>
-				
-			</div>
-			<div class="col-md-4" id="right">
-				<div class="row">
-					<div class="rightbox" id="recQuestions">
-						<h3 id="suggestedQuestion">Suggested Questions: </h3>
-						<ul id="recQuestionsList">
-						</ul>
-					</div>
-				</div>
+  <div class="main">
+  	<div class="container">
+  		<!-- <div class="row rowContainer"> -->
+  		<!-- <div class="col-md-8" id="left"> -->
+  		<div id="left">
 
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-			</br>
-
-				<div class="row">
+  			<div class="row">
+  				<form id="searchForm" class="form-inline" role="form" target="form-iframe">
 
 
-					<div class="rightbox" id="advertisement">Going through a divorce is hard. 
-						We understand and are here to help. We've partnered with lawyers, and other legal services.
-						<br><br><a href='/discounts#lawyer'>Click here</a> 
-						to get access to special discount rates.
-					</div>
-				</div>
+  					<input id="searchTerm" 
+  					class="form-control"
+  					placeholder="Ask Watson about divorce in English." autocomplete="off">
 
 
+  					<button type="submit" id="submitSearchTerm"
+  					class="btn btn-lg btn-primary ladda-button"
+  					data-style="zoom-out">
+  					<span class="ladda-label buttonText">Ask</span>
+  				</button>
+  			</form>
+  		</div>
 
+  		<div class="row">
+  			<!-- <div id="answerCarousel" class="single-item answer"></div> -->
+  			<iframe name="form-iframe" src="about:blank" class="hidden"></iframe>
+  		</div>
 
-				
-			</div>
-		</div>
-	</div>
+  		<div class="row" id="history">
+  		</div>
+
+  	</div>
+  	<!-- <div class="col-md-4" id="right"> -->
+  	<div id="right">
+
+  		<!-- <div class="row"> -->
+  		<div class="rightbox" id="recQuestions">
+  			<h3 id="suggestedQuestion">Suggested Questions: </h3>
+  			<ul id="recQuestionsList">
+  			</ul>
+  		</div>
+  		<!-- </div> -->
+
+  		<!-- <div class="row"> -->
+
+  		<div class="rightbox" id="advertisement">
+  			Going through a divorce is hard. 
+  			We understand and are here to help. We've partnered with lawyers, and other legal services.
+  			<br><br><a href='/discounts#lawyer'>Click here</a> 
+  			to get access to special discount rates.
+  		</div>
+  		<!-- </div> -->
+
+  	</div>
+  	<!-- </div> -->
+  </div>
 </div>
 
 
 
-	<script type="text/javascript">
-		var savedSearches = <%- JSON.stringify(savedSearches) %>;
-	</script>
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="jquery/jquery-2.1.0.min.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="slick/slick.min.js"></script>
-	<script src="ladda/spin.min.js"></script>
-	<script src="ladda/ladda.min.js"></script>
-	<script src="questions.js"></script>
-	<script>
-        $(function() {
-            Divorcesay.App.init();
-        });
-    </script>
+<script type="text/javascript">
+var savedSearches = <%- JSON.stringify(savedSearches) %>;
+</script>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="jquery/jquery-2.1.0.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="slick/slick.min.js"></script>
+<script src="ladda/spin.min.js"></script>
+<script src="ladda/ladda.min.js"></script>
+<script src="questions.js"></script>
+<script>
+$(function() {
+	Divorcesay.App.init();
+});
+</script>
 
 </body>
 </html>

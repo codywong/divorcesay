@@ -34,7 +34,8 @@ exports.question = function(req, res) {
             "items": 1
             },
             "items"        : 1,
-            "questionText" : req.body.question // The question
+            "questionText" : req.body.question, // The question
+            "formattedAnswer" : true
         }
     };
 
