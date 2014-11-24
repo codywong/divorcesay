@@ -233,7 +233,7 @@ Divorcesay.App = function() {
             .animate( { opacity: 1 }, { queue: false, duration: 1500 } );
 
         updateSuggestions(r.suggestions);
-
+        updateRecentQuestions(r.question);
     };
 
     var updateSuggestions = function(suggestions) {
@@ -248,8 +248,23 @@ Divorcesay.App = function() {
         setUpRecommendedQuestions(suggestions.questions);
     };
 
+    var updateRecentQuestions = function(question) {
+        var searchForm = $("#searchForm");
+        var recent = $('#recentQList');
+        recent.prepend('<li><a class="sampleQuestion">' + question.questionText + '</a></li>').children()
+            .first().hide().slideDown(1500).animate( { opacity: 1 }, { queue: false, duration: 1500 } );
+        
+        $('.sampleQuestion').click(function(e) {
+            // On click, get the selected question text and submit the form 
+            $('#searchTerm').val($(this).text());
+            //searchForm.submit();
+            e.preventDefault();
+        });
+    }
+
     var displayHistory = function() {
         var historyList = $('#history');
+        var recent = $('#recentQList');
 
         for (var i = 0; i < savedSearches.length; i++){
             var ans = JSON.parse(savedSearches[i].answer);
@@ -280,6 +295,8 @@ Divorcesay.App = function() {
             //                 + '<br><br>'
             //                 + '<div class="answer">' + ans[0].formattedText + '</div>'
             //                 +'</div>');
+
+            recent.append('<li><a class="sampleQuestion">' + savedSearches[i].question + '</a></li>')
         }
     }
 

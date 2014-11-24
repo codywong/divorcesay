@@ -195,7 +195,7 @@ h1.topicTitle {
   width: 100%;
 }
 
-#suggestedQuestion {
+.suggestedQuestion {
   margin-top: -3px;
   text-decoration: underline;
   font-size: 200%;
@@ -212,6 +212,18 @@ a.sampleQuestion {
   cursor: pointer;
 }
 
+#recentQ {
+  border-radius: 5px;
+  background: #666;
+  width: 100%;
+  margin-top: 1em;
+}
+
+ul#recentQList {
+  color: black;
+  margin-left: -10px;
+}
+
 #advertisement{
   border-radius: 5px;
   margin-top: 1em;
@@ -219,7 +231,7 @@ a.sampleQuestion {
   font-weight: bold;
 }
 
-#advertisement, #recQuestions {
+#advertisement, #recQuestions, #recentQ {
   /*background: url(../media/mintblue.jpg);*/
   filter: alpha(opacity=70);
   -ms-filter: alpha(Opacity=70);
