@@ -70,10 +70,18 @@ exports.question = function(req, res) {
         var newResult = new Result();
         // Capitalize first letter in sentence
         newResult.question  = ques.charAt(0).toUpperCase() + ques.slice(1);
+        
+        // for evidencelist text
         newResult.answer    = JSON.stringify(body.question.evidencelist);
+
+        // for formatted text
+        // newResult.answer    = JSON.stringify(body.question.answers);
+        // newResult.evidence  = JSON.stringify(body.question.evidencelist);
+
         newResult.created_at = Date.now();
         newResult.confidenceLevel = body.confidence.level;
         newResult.confidenceColor = body.confidence.colorIndicator;
+        newResult.confidenceValue = body.confidence.val;
 
         // if user is logged in, store their userid, otherwise, store sessionid
         if (req.user) {
@@ -173,11 +181,12 @@ exports.linkHistory = function(req, res) {
 // given a confidence value, gives a high/medium/low and green/yellow/red object
 var confidenceScale = function(c) {
     confidenceInfo = {};
+    confidenceInfo.val = (c * 100).toFixed(2) + "%";
 
     if (c >= 0.6) {
         confidenceInfo.level = "HIGH";
         confidenceInfo.colorIndicator = "green";
-    } else if (c >= 0.25) {
+    } else if (c >= 0.3) {
         confidenceInfo.level = "MEDIUM";
         confidenceInfo.colorIndicator = "yellow";
     } else {

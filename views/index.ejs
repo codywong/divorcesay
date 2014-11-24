@@ -75,7 +75,35 @@
   </div>
 </div>
 
-
+	<!-- Modal -->
+	<div class="modal fade" id="evidence" tabindex="-1" role="dialog" aria-labelledby="evidenceLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content evidence-modal-content">
+				<div class="modal-header evidence-modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="evidenceLabel">Evidence</h4>
+				</div>
+				<div class="modal-body evidence-modal-body">
+					<div class="evidence-title">
+						<h3>Confidence</h3>
+					</div>
+					<div id="actualConfidence" class="evidence-content"></div>
+					<div class="evidence-title">
+						<h3>Title</h3>
+					</div>
+					<div id="title" class="evidence-content"></div>
+					<div class="evidence-title">
+						<h3>Text</h3>
+					</div>
+					<div id="text" class="evidence-content"></div>
+					<div class="evidence-title">
+						<h3>Copyright</h3>
+					</div>
+					<div id="copyright" class="evidence-content"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <script type="text/javascript">
 var savedSearches = <%- JSON.stringify(savedSearches) %>;

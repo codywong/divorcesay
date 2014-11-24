@@ -7,7 +7,10 @@ var resultSchema = new Schema({
 
     question	: String,
     answer		: String,
+    // for formatted text
+    // evidence    : String,
     sessionID	: String,
+    confidenceValue: String,
     confidenceLevel: String,
     confidenceColor: String,
     created_at  : { 

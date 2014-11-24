@@ -3,6 +3,7 @@ var Divorcesay = Divorcesay || {};
 Divorcesay.App = function() {
     // The current Slick Carousel index
     var slickIndex = 0;
+    var askIndex = -1;
 
     var defaultSuggestedQuestions = [
                          'What is a divorce?',
@@ -37,10 +38,25 @@ Divorcesay.App = function() {
     // Create a modal dialog to host an answer's evidence
     var createEvidenceModal = function(i, r) {
         var evidenceModal = $('#evidence').clone();
-        if (r.question.evidencelist === undefined) {
+        if (r.question.evidencelist === undefined &&
+            r.answer === undefined) {
             return evidenceModal;
         }
-        var evidence = r.question.evidencelist[i];
+        if (r.question.evidencelist === undefined) {
+
+            // for formatted text
+            // var ans = JSON.parse(r.evidence);
+
+            // for evidencelist text
+            var ans = JSON.parse(r.answer);
+
+            var evidence = ans[0];
+            evidenceModal.find('#actualConfidence').text(r.confidenceValue);
+        } else {
+            var evidence = r.question.evidencelist[0];
+            evidenceModal.find('#actualConfidence').text(r.confidence.val);
+        }
+
         evidenceModal.attr('id', 'evidence-' + i);
         evidenceModal.find('#text').text(evidence.text);
         evidenceModal.find('#title').text(evidence.title);
@@ -184,20 +200,35 @@ Divorcesay.App = function() {
     var updateResults = function(r) {
         $('#searchTerm').val("");
         var historyList = $('#history');
-        // historyList.prepend('<div class="searches">' + r.question.questionText + '<br>'
+                
+        createEvidenceModal(askIndex, r);
+        evidenceRef = $('<a>', {
+            'href' : '#',
+            'id' : 'evidence0' + askIndex,
+            'text' : "Reference",
+            'class' : 'clink' + askIndex,
+            'onclick' : "$('#evidence-" + askIndex + "').modal('show'); return false;"
+        });
+        askIndex -= 1;
+
+        // for formatted text
+        // historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>'
         //                     + '<p class="confidence"> Confidence: </p>'
         //                     + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
-        //                         + r.confidence.level + '</p>'
+        //                         + r.confidence.level + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
         //                     + '<br><br>'
-        //                     + '<p class="answer">' + r.question.answers[0].formattedText + '</p>'
+        //                     + '<div class="answer">' + r.question.answers[0].formattedText + '</div>'
         //                     +'</div>');
-        historyList.prepend('<div class="searches">' + r.question.questionText + '<br>'
+
+        // for evidencelist text
+        historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>'
                             + '<p class="confidence"> Confidence: </p>'
                             + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
-                                + r.confidence.level + '</p>'
+                                + r.confidence.level + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
                             + '<br><br>'
                             + '<p class="answer">' + r.question.evidencelist[0].text + '</p>'
                             +'</div>');
+
         historyList.children().first().hide().slideDown(1500)
             .animate( { opacity: 1 }, { queue: false, duration: 1500 } );
 
@@ -222,13 +253,33 @@ Divorcesay.App = function() {
 
         for (var i = 0; i < savedSearches.length; i++){
             var ans = JSON.parse(savedSearches[i].answer);
-            historyList.append('<div class="searches">' + savedSearches[i].question + '<br>'
+
+            createEvidenceModal(i, savedSearches[i]);
+            evidenceRef = $('<a>', {
+            'href' : '#',
+            'id' : 'evidence' + i,
+            'text' : "Reference",
+            'class' : 'clink' + i,
+            'onclick' : "$('#evidence-" + i + "').modal('show'); return false;"
+            });
+
+            // for evidencelist text
+            historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>'
                             + '<p class="confidence"> Confidence: </p>'
                             + '<p class="' + savedSearches[i].confidenceColor + ' confidence">' 
-                                + savedSearches[i].confidenceLevel + '</p>'
+                                + savedSearches[i].confidenceLevel + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
                             + '<br><br>'
                             + '<p class="answer">' + ans[0].text + '</p>'
                             +'</div>');
+
+            // for formatted text
+            // historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>'
+            //                 + '<p class="confidence"> Confidence: </p>'
+            //                 + '<p class="' + savedSearches[i].confidenceColor + ' confidence">' 
+            //                     + savedSearches[i].confidenceLevel + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+            //                 + '<br><br>'
+            //                 + '<div class="answer">' + ans[0].formattedText + '</div>'
+            //                 +'</div>');
         }
     }
 
