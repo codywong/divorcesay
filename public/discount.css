@@ -7,19 +7,22 @@
 /* Toggle Styles */
 
 
-.navbar-fixed-top {
+/*.navbar-fixed-top {
     left: 0;
     position: relative;
     right: 0;
     z-index: 1030;
-}
+}*/
 
 #wrapper {
     padding-left: 10px;
     padding-right: 10px;
     position: relative;
     width: 100%;
-    height: 85%;
+    height: 83%;
+    top: 100px;
+    left: 0px;
+    /*border: 5px solid white;*/
 }
 
 #sidebar-wrapper {
@@ -52,6 +55,7 @@
     padding: 10px;
     list-style: none;
     margin: 0;
+    overflow-y: scroll;
 }
 
 .sidebar-nav li {
@@ -62,13 +66,17 @@
 .sidebar-nav li a {
     display: block;
     text-decoration: none;
-    color: #999999;
+    /*color: #999999;*/
+    color: #037E8C;
+    font-weight: bold;
+    margin-top: 1em;
 }
 
 .sidebar-nav li a:hover {
     text-decoration: none;
-    color: #fff;
-    background: rgba(255,255,255,0.2);
+    /*color: #fff;*/
+    color: #037E8C;
+    background: rgba(255,255,255,0.7);
 }
 
 .sidebar-nav li a:active,
@@ -101,7 +109,12 @@
 } 
 
 .header-row {
-    padding-left: 10px;
+    margin-left: 1.5%;
+    padding-left: 0.3%;
+}
+
+.header-row h1 {
+    font-size: 31px;
 }
 
 .ads-row {
@@ -113,7 +126,8 @@
     height: 300px;
     float: left;
     margin: 1.5%;
-
+    background-color: white;
+    border-radius: 5px;
 }
 
 .ad-content {
@@ -144,27 +158,33 @@
 }
 
 .one {
-    background-color: rgb(223, 240, 216);
+    /*background-color: rgb(223, 240, 216);*/
+    background-color: rgba(128, 180, 107, 1);
 }
 
 .two {
-    background-color: rgb(217, 237, 247);
+    /*background-color: rgb(217, 237, 247);*/
+    background-color: rgba(111, 162, 188, 1);
 }
 
 .three {
-    background-color: rgb(252, 248, 227);
+    /*background-color: rgb(252, 248, 227);*/
+    background-color: rgba(201, 187, 111, 1);
 }
 
 .four {
-    background-color: rgb(242, 222, 222);
+    /*background-color: rgb(242, 222, 222);*/
+    background-color: rgba(228, 140, 140, 1);
 }
 
 .five {
-    background-color: #E0D1FF;
+    /*background-color: #E0D1FF;*/
+    background-color: rgba(167, 143, 218, 1);
 }
 
 .six {
-    background-color: rgb(223, 240, 216);
+    /*background-color: rgb(223, 240, 216);*/
+    background-color: rgba(128, 180, 107, 1);
 }
 
 .redeem {
