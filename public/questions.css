@@ -1,3 +1,41 @@
+#right::-webkit-scrollbar {
+  width:2.5%;
+  height:10px;
+}
+
+#history::-webkit-scrollbar {
+  width:1.5%;
+  height:10px;
+}
+
+/*::-webkit-scrollbar-button:start:decrement, 
+::-webkit-scrollbar-button:end:increment {
+  display:block;
+  height:0;
+  background-color:transparent;
+}*/
+
+::-webkit-scrollbar-track-piece {
+  background-color:transparent;
+  -webkit-border-radius:8px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+  height:50px;
+  background-color:#999;
+  -webkit-border-radius:8px;
+}
+
+#history::-webkit-scrollbar-track-piece {
+  margin-bottom: 10px;
+}
+
+/*::-webkit-scrollbar-thumb:horizontal {
+  width:50px;
+  background-color:#999;
+  -webkit-border-radius:8px;
+}*/
+
 #top {
   float: right;
   background: transparent;
@@ -90,13 +128,18 @@ div#cover {
   position: absolute;
   top: 0px;
   right: 0px;
-  overflow-y: scroll;
+  overflow-y: hidden;
   margin-top: 1em;
   margin-right: 2%;
-  width: 30%;
+  width: 31%;
   height: 96%;
+  padding-right: 0.8%;
   /*border: 5px solid white;*/
   /*float: right;*/
+}
+
+#right:hover {
+  overflow-y: overlay;
 }
 
 .row {
@@ -133,10 +176,16 @@ div#cover {
 }
 
 #history {
-  width: 93%;
+  width: 95%;
   height: 88%;
   padding-left: 2%;
-  overflow-y: scroll;
+  padding-right: 1.5%;
+  overflow-y: hidden;
+  margin-top: 10px;
+}
+
+#history:hover {
+  overflow-y: overlay;
 }
 
 .searches {
@@ -144,7 +193,7 @@ div#cover {
   font-size: 19px;
   background-color: white;
   padding: 25px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .historyQ {
@@ -160,7 +209,17 @@ div#cover {
   margin-left: 0px;
   padding: 0px;
   font-size: 85%;
+  color: red;
+  font-weight: bold;
+}
+
+.source {
+  display: inline;
+  margin-left: 0px;
+  padding: 0px;
+  font-size: 90%;
   color: black;
+  font-weight: bold;
 }
 
 .green {

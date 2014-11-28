@@ -221,13 +221,22 @@ Divorcesay.App = function() {
         //                     +'</div>');
 
         // for evidencelist text
-        historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>'
-                            + '<p class="confidence"> Confidence: </p>'
-                            + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
-                                + r.confidence.level + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
-                            + '<br><br>'
-                            + '<p class="answer">' + r.question.evidencelist[0].text + '</p>'
-                            +'</div>');
+        // historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>'
+        //                     + '<p class="confidence"> Confidence: </p>'
+        //                     + '<p class="' + r.confidence.colorIndicator + ' confidence">' 
+        //                         + r.confidence.level + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+        //                     + '<br><br>'
+        //                     + '<p class="answer">' + r.question.evidencelist[0].text + '</p>'
+        //                     +'</div>');
+
+        historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>');
+        if (r.confidence.level == "LOW") {
+            historyList.find("div:eq(0)").append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
+        }
+        historyList.find("div:eq(0)").append('<p class="answer">' 
+                        + r.question.evidencelist[0].text + '</p>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+                        + '</div>');
+        
 
         historyList.children().first().hide().slideDown(1500)
             .animate( { opacity: 1 }, { queue: false, duration: 1500 } );
@@ -251,8 +260,11 @@ Divorcesay.App = function() {
     var updateRecentQuestions = function(question) {
         var searchForm = $("#searchForm");
         var recent = $('#recentQList');
+        if (recent.find("li").length > 4) {
+            recent.find("li:eq(4)").remove();
+        }
         recent.prepend('<li><a class="sampleQuestion">' + question.questionText + '</a></li>').children()
-            .first().hide().slideDown(1500).animate( { opacity: 1 }, { queue: false, duration: 1500 } );
+            .first().hide().slideDown(1000).animate( { opacity: 1 }, { queue: false, duration: 1000 } );
         
         $('.sampleQuestion').click(function(e) {
             // On click, get the selected question text and submit the form 
@@ -279,13 +291,13 @@ Divorcesay.App = function() {
             });
 
             // for evidencelist text
-            historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>'
-                            + '<p class="confidence"> Confidence: </p>'
-                            + '<p class="' + savedSearches[i].confidenceColor + ' confidence">' 
-                                + savedSearches[i].confidenceLevel + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
-                            + '<br><br>'
-                            + '<p class="answer">' + ans[0].text + '</p>'
-                            +'</div>');
+            // historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>'
+            //                 + '<p class="confidence"> Confidence: </p>'
+            //                 + '<p class="' + savedSearches[i].confidenceColor + ' confidence">' 
+            //                     + savedSearches[i].confidenceLevel + '&nbsp;&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+            //                 + '<br><br>'
+            //                 + '<p class="answer">' + ans[0].text + '</p>'
+            //                 +'</div>');
 
             // for formatted text
             // historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>'
@@ -296,7 +308,17 @@ Divorcesay.App = function() {
             //                 + '<div class="answer">' + ans[0].formattedText + '</div>'
             //                 +'</div>');
 
-            recent.append('<li><a class="sampleQuestion">' + savedSearches[i].question + '</a></li>')
+            historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>');
+            if (savedSearches[i].confidenceLevel == "LOW") {
+                historyList.find('div:eq(' + i +')').append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
+            }
+            historyList.find('div:eq(' + i +')').append('<p class="answer">' 
+                        + ans[0].text + '</p>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+                        + '</div>');
+
+            if (recent.find("li").length < 5) {
+                recent.append('<li><a class="sampleQuestion">' + savedSearches[i].question + '</a></li>');
+            }
         }
     }
 
