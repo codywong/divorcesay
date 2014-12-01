@@ -45,22 +45,22 @@ Divorcesay.App = function() {
         if (r.question.evidencelist === undefined) {
 
             // for formatted text
-            // var ans = JSON.parse(r.evidence);
+            var ans = JSON.parse(r.evidence);
 
             // for evidencelist text
-            var ans = JSON.parse(r.answer);
+            // var ans = JSON.parse(r.answer);
 
             var evidence = ans[0];
             evidenceModal.find('#actualConfidence').text(r.confidenceValue);
         } else {
-            var evidence = r.question.evidencelist[0];
+            var evidence = r.question.answers[0];
             evidenceModal.find('#actualConfidence').text(r.confidence.val);
         }
 
         evidenceModal.attr('id', 'evidence-' + i);
-        evidenceModal.find('#text').text(evidence.text);
-        evidenceModal.find('#title').text(evidence.title);
-        evidenceModal.find('#copyright').text(evidence.copyright);
+        evidenceModal.find('#text').append(evidence.formattedText);
+        // evidenceModal.find('#title').text(evidence.title);
+        // evidenceModal.find('#copyright').text(evidence.copyright);
         evidenceModal.insertAfter('#evidence');
         return evidenceModal;
     };
@@ -200,12 +200,13 @@ Divorcesay.App = function() {
     var updateResults = function(r) {
         $('#searchTerm').val("");
         var historyList = $('#history');
+        var source = r.question.evidencelist[0].title.split(":");
                 
         createEvidenceModal(askIndex, r);
         evidenceRef = $('<a>', {
             'href' : '#',
             'id' : 'evidence0' + askIndex,
-            'text' : "Reference",
+            'text' : source[0],
             'class' : 'clink' + askIndex,
             'onclick' : "$('#evidence-" + askIndex + "').modal('show'); return false;"
         });
@@ -231,10 +232,10 @@ Divorcesay.App = function() {
 
         historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>');
         if (r.confidence.level == "LOW") {
-            historyList.find("div:eq(0)").append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
+            historyList.find("div:eq(0)").append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br>');
         }
         historyList.find("div:eq(0)").append('<p class="answer">' 
-                        + r.question.evidencelist[0].text + '</p>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+                        + r.question.answers[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
                         + '</div>');
         
 
@@ -275,10 +276,10 @@ Divorcesay.App = function() {
             recent.find("li:eq(4)").slideUp(1000).animate( { opacity: 0 }, { queue: false, duration: 1000 },"{}", 
             function(){$(this).remove();} );
         }
-        recent.prepend('<li><a class="sampleQuestion">' + question.questionText + '</a></li>').children()
+        recent.prepend('<li><a class="recentQuestion">' + question.questionText + '</a></li>').children()
             .first().hide().slideDown(1000).animate( { opacity: 1 }, { queue: false, duration: 1000 } );
         
-        $('.sampleQuestion').click(function(e) {
+        $('.recentQuestion').click(function(e) {
             // On click, get the selected question text and submit the form 
             $('#searchTerm').val($(this).text());
             //searchForm.submit();
@@ -297,12 +298,14 @@ Divorcesay.App = function() {
 
         for (var i = 0; i < savedSearches.length; i++){
             var ans = JSON.parse(savedSearches[i].answer);
+            var formatted = JSON.parse(savedSearches[i].evidence);
+            var source = ans[0].title.split(":");
 
             createEvidenceModal(i, savedSearches[i]);
             evidenceRef = $('<a>', {
             'href' : '#',
             'id' : 'evidence' + i,
-            'text' : "Reference",
+            'text' : source[0],
             'class' : 'clink' + i,
             'onclick' : "$('#evidence-" + i + "').modal('show'); return false;"
             });
@@ -327,18 +330,23 @@ Divorcesay.App = function() {
 
             historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>');
             if (savedSearches[i].confidenceLevel == "LOW") {
-                historyList.find('div:eq(' + i +')').append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
+                historyList.find('div:eq(' + i +')').append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br>');
             }
             historyList.find('div:eq(' + i +')').append('<p class="answer">' 
-                        + ans[0].text + '</p>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+                        + formatted[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
                         + '</div>');
 
             if (recent.find("li").length < 5) {
-                recent.append('<li><a class="sampleQuestion">' + savedSearches[i].question + '</a></li>');
+                recent.append('<li><a class="recentQuestion">' + savedSearches[i].question + '</a></li>');
             }
         }
 
-
+        $('.recentQuestion').click(function(e) {
+            // On click, get the selected question text and submit the form 
+            $('#searchTerm').val($(this).text());
+            //$('#searchTerm').submit();
+            e.preventDefault();
+        });
     }
 
 

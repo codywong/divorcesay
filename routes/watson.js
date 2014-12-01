@@ -73,11 +73,11 @@ exports.question = function(req, res) {
         newResult.question  = ques.charAt(0).toUpperCase() + ques.slice(1);
         
         // for evidencelist text
-        newResult.answer    = JSON.stringify(body.question.evidencelist);
+        // newResult.answer    = JSON.stringify(body.question.evidencelist);
 
         // for formatted text
-        // newResult.answer    = JSON.stringify(body.question.answers);
-        // newResult.evidence  = JSON.stringify(body.question.evidencelist);
+        newResult.answer    = JSON.stringify(body.question.evidencelist);
+        newResult.evidence  = JSON.stringify(body.question.answers);
 
         newResult.created_at = Date.now();
         newResult.confidenceLevel = body.confidence.level;

@@ -8,7 +8,7 @@ var resultSchema = new Schema({
     question	: String,
     answer		: String,
     // for formatted text
-    // evidence    : String,
+    evidence    : String,
     sessionID	: String,
     confidenceValue: String,
     confidenceLevel: String,

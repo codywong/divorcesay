@@ -190,7 +190,8 @@ div#cover {
 
 .searches {
   color: #000;
-  font-size: 19px;
+  /*font-size: 19px;*/
+  font-size: 15px;
   background-color: white;
   padding: 25px;
   margin-bottom: 10px;
@@ -199,6 +200,7 @@ div#cover {
 
 .historyQ {
   font-weight: bold;
+  font-size: 17px;
 }
 
 /*.confidence {
@@ -209,7 +211,8 @@ div#cover {
   display: inline;
   margin-left: 0px;
   padding: 0px;
-  font-size: 85%;
+  /*font-size: 85%;*/
+  font-size: 15px;
   color: red;
   font-style: italic;
 }
@@ -218,7 +221,7 @@ div#cover {
   display: inline;
   margin-left: 0px;
   padding: 0px;
-  font-size: 90%;
+  font-size: 16px;
   color: black;
   font-weight: bold;
 }
@@ -242,7 +245,7 @@ div#cover {
 }
 
 .answer {
-  font-size: 85%;
+  font-size: 15px;
 }
 
 h1.topicTitle {
