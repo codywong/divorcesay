@@ -29,7 +29,7 @@ Divorcesay.App = function() {
         $('.sampleQuestion').click(function(e) {
             // On click, get the selected question text and submit the form 
             $('#searchTerm').val($(this).text());
-            //searchForm.submit();
+            searchForm.submit();
             e.preventDefault();
         });
         
@@ -245,6 +245,7 @@ Divorcesay.App = function() {
         updateRecentQuestions(r.question);
     };
 
+    // update suggested questions, advertisement and ToDo
     var updateSuggestions = function(suggestions) {
         var adBox = document.getElementById("advertisement");
         var adwords = $("adText");
@@ -254,14 +255,25 @@ Divorcesay.App = function() {
                             + "<a href=" + suggestions.url + ">Click here</a>"
                             + " to get access to special discount rates.";
 
+        if (suggestions.url == "/discounts#childCare" && $('#todoList').find("li").length == 2 ) {
+            var test = $('#todoList');
+            // console.log(test);
+            $('#todoList').append('<li><a href="http://www.ontariocourtforms.on.ca/forms/family/08/FLR-08-Oct12.pdf">Form 8: Application (General)</a></li>');
+            $('#todoList').append('<li><a href="http://www.ontariocourtforms.on.ca/forms/family/35.1/FLR-35-1-Nov09-EN.pdf">'+
+                                        'Form 35.1: Affidavit in Support of Claim for Custody or Access</a></li>');
+        }
+
         setUpRecommendedQuestions(suggestions.questions);
     };
 
     var updateRecentQuestions = function(question) {
         var searchForm = $("#searchForm");
         var recent = $('#recentQList');
+        // show recents div if it was previously hidden
+        $('#recentQ').show().slideDown(1000).animate( { opacity: 0.9 }, { queue: false, duration: 1000 } );
         if (recent.find("li").length > 4) {
-            recent.find("li:eq(4)").remove();
+            recent.find("li:eq(4)").slideUp(1000).animate( { opacity: 0 }, { queue: false, duration: 1000 },"{}", 
+            function(){$(this).remove();} );
         }
         recent.prepend('<li><a class="sampleQuestion">' + question.questionText + '</a></li>').children()
             .first().hide().slideDown(1000).animate( { opacity: 1 }, { queue: false, duration: 1000 } );
@@ -277,6 +289,11 @@ Divorcesay.App = function() {
     var displayHistory = function() {
         var historyList = $('#history');
         var recent = $('#recentQList');
+
+        // hide recent questions if no questions were asked yet
+        if (!savedSearches.length) {
+            $('#recentQ').hide();
+        }
 
         for (var i = 0; i < savedSearches.length; i++){
             var ans = JSON.parse(savedSearches[i].answer);
@@ -320,6 +337,8 @@ Divorcesay.App = function() {
                 recent.append('<li><a class="sampleQuestion">' + savedSearches[i].question + '</a></li>');
             }
         }
+
+
     }
 
 
@@ -358,7 +377,6 @@ Divorcesay.App = function() {
         // Initialize the sample questions dropdown
         setUpRecommendedQuestions(defaultSuggestedQuestions);
         displayHistory();
-
     };
 
     // Expose privileged methods

@@ -76,7 +76,7 @@ div#cover {
   height: 100%;
   /*background-color: #47D1D1;*/
   /*background: linear-gradient(rgb(255, 110, 110), white);*/
-  background: linear-gradient(black, rgba(0,0,0,.3));
+  background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0));
   top: 0;
   left: 0;
   background-blend-mode: multiply;
@@ -194,6 +194,7 @@ div#cover {
   background-color: white;
   padding: 25px;
   margin-bottom: 10px;
+  word-wrap: break-word;
 }
 
 .historyQ {
@@ -210,7 +211,7 @@ div#cover {
   padding: 0px;
   font-size: 85%;
   color: red;
-  font-weight: bold;
+  font-style: italic;
 }
 
 .source {
@@ -249,48 +250,40 @@ h1.topicTitle {
 }
 
 #recQuestions {
-  border-radius: 5px;
-  background: #666;
+  margin-top: 0;
   width: 100%;
 }
 
-.suggestedQuestion {
+.rightHeader {
   margin-top: -3px;
   text-decoration: underline;
   font-size: 200%;
   color: black;
 }
 
-ul#recQuestionsList {
+.rightlist {
   color: black;
   margin-left: -10px;
 }
 
-a.sampleQuestion {
+a {
   font-weight: bold;
   cursor: pointer;
 }
 
 #recentQ {
   border-radius: 5px;
-  background: #666;
   width: 100%;
-  margin-top: 1em;
 }
 
-ul#recentQList {
-  color: black;
-  margin-left: -10px;
-}
+
 
 #advertisement{
-  border-radius: 5px;
-  margin-top: 1em;
   color: black;
   font-weight: bold;
 }
 
-#advertisement, #recQuestions, #recentQ {
+.rightbox {
   /*background: url(../media/mintblue.jpg);*/
   filter: alpha(opacity=70);
   -ms-filter: alpha(Opacity=70);
@@ -300,6 +293,8 @@ ul#recentQList {
   /*background-color: rgba(71, 209, 209, 0.6);*/
   background-color: white;
   padding: 15px;
+  margin-top: 1em;
+  border-radius: 5px;
 }
 
 .hidden {

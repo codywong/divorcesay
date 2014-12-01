@@ -35,7 +35,8 @@ exports.question = function(req, res) {
             },
             "items"        : 1,
             "questionText" : req.body.question, // The question
-            "formattedAnswer" : true
+            "formattedAnswer" : true,
+            // "context" : "divorce"
         }
     };
 
@@ -186,7 +187,7 @@ var confidenceScale = function(c) {
     if (c >= 0.6) {
         confidenceInfo.level = "HIGH";
         confidenceInfo.colorIndicator = "green";
-    } else if (c >= 0.2) {
+    } else if (c >= 0.1) {
         confidenceInfo.level = "MEDIUM";
         confidenceInfo.colorIndicator = "yellow";
     } else {
