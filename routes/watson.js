@@ -203,22 +203,22 @@ var suggestedContent = function(question) {
 
     var lcQuestion = question.toLowerCase();
     if(lcQuestion.indexOf('child') >= 0 || lcQuestion.indexOf('custody') >= 0) {
-        suggestions.questions = [ 'What is child custody?'
-                                , 'What laws affect who gets custody?'
-                                , 'What is joint custody?'
-                                , 'What is the difference between joint and shared custody?'
-                                , 'What is child access?'];
+        suggestions.questions = [ 'How is child custody decided?'
+                                , 'How do we decide on which school our children should go to?'
+                                , 'My ex isn’t letting me see my children, what can I do?'
+                                , 'How often can I see my children?'
+                                , 'How is child support calculated?'];
         suggestions.advertisement = 'child counselling services, daycares, and babysitters';
         suggestions.url = '/discounts#childCare'
     }
-    else if(lcQuestion.indexOf('house') >= 0 || lcQuestion.indexOf('home') >= 0) {
-        suggestions.questions = [ 'What is a matrimonial home?'
-                                , 'How is the ownership of a matrimonial house decided?'
-                                , 'Who will pay for the mortgage, and insurance until the house is sold?'
-                                , 'How is the property split if it was mine before I got married?'
-                                , 'Who will have to pay for maintenance of the house during the divorce?'];
-        suggestions.advertisement = 'real estate agents, home inspectors, and mortage consultants';
-        suggestions.url = '/discounts#estate'
+    else if(lcQuestion.indexOf('support') >= 0 || lcQuestion.indexOf('spousal') >= 0) {
+        suggestions.questions = [ 'Can I change my spousal support?'
+                                , 'Can I refuse to pay the spousal support?'
+                                , 'Can I change a spousal support order from another province?'
+                                , 'How can I figure out how much support to ask for?'
+                                , 'What does reciprocating jurisdiction mean?'];
+        suggestions.advertisement = 'financial planners, investment services, and mortage consultants';
+        suggestions.url = '/discounts#finance'
     } else {
         suggestions.advertisement = 'lawyers, and other legal services';
         suggestions.url = '/discounts#lawyer'

@@ -6,11 +6,11 @@ Divorcesay.App = function() {
     var askIndex = -1;
 
     var defaultSuggestedQuestions = [
-                         'What is a divorce?',
-                         'How long does a divorce take?',
-                         'What is the difference between a mediated and collaborated divorce?',
-                         'Can I prevent my spouse from having custody?',
-                         'What is required to serve a document?'
+                         'Where do I go to get a divorce?',
+                         'How long is the divorce process?',
+                         'How long do I need to be separated before I can apply for a divorce?',
+                         'Can I prevent my spouse from having child custody?',
+                         'I do not have enough money to get a lawyer, what should I do?'
                          ];
 
 
@@ -230,9 +230,9 @@ Divorcesay.App = function() {
         //                     + '<p class="answer">' + r.question.evidencelist[0].text + '</p>'
         //                     +'</div>');
 
-        historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p>');
+        historyList.prepend('<div class="searches">' + '<p class="historyQ">' + r.question.questionText + '</p><br>');
         if (r.confidence.level == "LOW") {
-            historyList.find("div:eq(0)").append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br>');
+            historyList.find("div:eq(0)").append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
         }
         historyList.find("div:eq(0)").append('<p class="answer">' 
                         + r.question.answers[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
@@ -328,9 +328,9 @@ Divorcesay.App = function() {
             //                 + '<div class="answer">' + ans[0].formattedText + '</div>'
             //                 +'</div>');
 
-            historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p>');
+            historyList.append('<div class="searches">' + '<p class="historyQ">' + savedSearches[i].question + '</p><br>');
             if (savedSearches[i].confidenceLevel == "LOW") {
-                historyList.find('div:eq(' + i +')').append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br>');
+                historyList.find('div:eq(' + i +')').append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
             }
             historyList.find('div:eq(' + i +')').append('<p class="answer">' 
                         + formatted[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
