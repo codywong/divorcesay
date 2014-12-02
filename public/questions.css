@@ -39,9 +39,10 @@
 #top {
   float: right;
   background: transparent;
-  margin-top: 15px;
+  margin-top: 0px;
   margin-right: 15px;
   font-size: 18px;
+  float: right;
 }
 
 #logo {
@@ -98,7 +99,7 @@ div#cover {
 }
 
 .navbar {
-  height: 100px;
+  height: 80px;
 }
 
 .container {
@@ -423,4 +424,13 @@ div#skyline {
 
 .buttonText{
   width: auto;
+}
+
+#location{
+  margin-right: 30px;
+  float: right;
+}
+#flag{
+  width: 16px; 
+  height:11px
 }

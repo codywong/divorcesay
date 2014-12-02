@@ -471,7 +471,7 @@ h6,
   font-size: 13px;
 }
 p {
-  margin: 0 0 10.5px;
+  margin: 0 0 0px;
 }
 .lead {
   margin-bottom: 21px;
@@ -3721,6 +3721,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
+
   position: fixed;
   right: 0;
   left: 0;
