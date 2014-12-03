@@ -46,15 +46,18 @@ Divorcesay.App = function() {
 
             // for formatted text
             var ans = JSON.parse(r.evidence);
+            var source = JSON.parse(r.answer);
 
             // for evidencelist text
             // var ans = JSON.parse(r.answer);
 
             var evidence = ans[0];
             evidenceModal.find('#actualConfidence').text(r.confidenceValue);
+            evidenceModal.find('#title').text(source[0].title.split(":")[0]);
         } else {
             var evidence = r.question.answers[0];
             evidenceModal.find('#actualConfidence').text(r.confidence.val);
+            evidenceModal.find('#title').text(r.question.evidencelist[0].title.split(":")[0]);
         }
 
         evidenceModal.attr('id', 'evidence-' + i);
@@ -206,7 +209,7 @@ Divorcesay.App = function() {
         evidenceRef = $('<a>', {
             'href' : '#',
             'id' : 'evidence0' + askIndex,
-            'text' : source[0],
+            'text' : 'See More',
             'class' : 'clink' + askIndex,
             'onclick' : "$('#evidence-" + askIndex + "').modal('show'); return false;"
         });
@@ -234,8 +237,11 @@ Divorcesay.App = function() {
         if (r.confidence.level == "LOW") {
             historyList.find("div:eq(0)").append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
         }
+        // historyList.find("div:eq(0)").append('<p class="answer">' 
+        //                 + r.question.answers[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+        //                 + '</div>');
         historyList.find("div:eq(0)").append('<p class="answer">' 
-                        + r.question.answers[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+                        + r.question.answers[0].formattedText + '</p>' + '<br>' + '<p class="source">' + evidenceRef[0].outerHTML + '</p>'
                         + '</div>');
         
 
@@ -305,7 +311,7 @@ Divorcesay.App = function() {
             evidenceRef = $('<a>', {
             'href' : '#',
             'id' : 'evidence' + i,
-            'text' : source[0],
+            'text' : 'See More',
             'class' : 'clink' + i,
             'onclick' : "$('#evidence-" + i + "').modal('show'); return false;"
             });
@@ -332,8 +338,11 @@ Divorcesay.App = function() {
             if (savedSearches[i].confidenceLevel == "LOW") {
                 historyList.find('div:eq(' + i +')').append('<p class="confidence">We are not so sure about this answer - maybe try rewording your question.</p>' + '<br><br>');
             }
+            // historyList.find('div:eq(' + i +')').append('<p class="answer">' 
+            //             + formatted[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+            //             + '</div>');
             historyList.find('div:eq(' + i +')').append('<p class="answer">' 
-                        + formatted[0].formattedText + '</p>' + '<br>' + '<p class="source"> Source:' + '&nbsp;&nbsp;' + evidenceRef[0].outerHTML + '</p>'
+                        + formatted[0].formattedText + '</p>' + '<br>' + '<p class="source">' + evidenceRef[0].outerHTML + '</p>'
                         + '</div>');
 
             if (recent.find("li").length < 5) {
